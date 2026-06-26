@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getCategory, getProductsByCategory, categories } from "@/lib/products";
+import { getCategory, getProductsByCategory, categories, type Product } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 
 export const Route = createFileRoute("/category/$slug")({
@@ -48,7 +48,7 @@ function CategoryPage() {
       </header>
 
       <div className="mt-10 grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((p) => (
+        {(products as Product[]).map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
