@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getCategory, getProductsByCategory, categories, type Product } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
