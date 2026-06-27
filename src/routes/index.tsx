@@ -1,16 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero.jpg";
 import { categories, products } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maison — Curated Goods for Everyday Living" },
-      { name: "description", content: "A minimalist showcase of curated goods across home, fashion, tech and lifestyle." },
-      { property: "og:title", content: "Maison — Curated Goods" },
-      { property: "og:description", content: "A minimalist showcase of curated goods." },
+      { title: "Trusiqq — Bakery & Office Supplies" },
+      { name: "description", content: "A minimalist showcase of bakery and office supplies — considered goods for makers and workspaces." },
+      { property: "og:title", content: "Trusiqq — Bakery & Office Supplies" },
+      { property: "og:description", content: "A minimalist showcase of bakery and office supplies." },
     ],
   }),
   component: Home,
@@ -18,25 +18,88 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const featured = products.filter((p) => p.badge).slice(0, 8);
+  const [slide, setSlide] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSlide((s) => (s + 1) % categories.length);
+    }, 4500);
+    return () => clearInterval(id);
+  }, []);
+
+  const active = categories[slide];
 
   return (
     <div>
-      {/* Hero */}
-      <section className="mx-auto max-w-7xl px-5 pt-8 lg:px-8">
-        <div className="grid items-end gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+      {/* Hero carousel — one slide per category */}
+      <section className="mx-auto max-w-7xl px-5 pt-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-2xl bg-muted">
+          <div className="relative aspect-[16/10] sm:aspect-[16/8] lg:aspect-[16/7]">
+            {categories.map((c, i) => (
+              <Link
+                key={c.slug}
+                to="/category/$slug"
+                params={{ slug: c.slug }}
+                aria-label={`View ${c.name}`}
+                className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                  i === slide ? "opacity-100" : "pointer-events-none opacity-0"
+                }`}
+              >
+                <img
+                  src={c.image}
+                  alt={`${c.name} — ${c.tagline}`}
+                  width={1600}
+                  height={1000}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-background sm:p-10">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-background/80">
+                    Category {i + 1} of {categories.length}
+                  </p>
+                  <h2 className="mt-3 text-3xl font-light tracking-tight sm:text-5xl">
+                    {c.name}
+                  </h2>
+                  <p className="mt-2 max-w-md text-sm text-background/85 sm:text-base">
+                    {c.tagline}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Dots */}
+          <div className="absolute bottom-4 right-4 flex gap-2 sm:bottom-6 sm:right-6">
+            {categories.map((c, i) => (
+              <button
+                key={c.slug}
+                onClick={() => setSlide(i)}
+                aria-label={`Show ${c.name}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === slide ? "w-8 bg-background" : "w-4 bg-background/50 hover:bg-background/80"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Headline + CTA */}
+        <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              Autumn — 2026
+              Trusiqq — 2026
             </p>
-            <h1 className="mt-5 text-5xl font-light leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-              Objects for a<br />
-              <span className="italic text-primary">quieter</span> life.
+            <h1 className="mt-4 text-5xl font-light leading-[1.05] tracking-tight text-foreground sm:text-6xl">
+              Considered supplies for{" "}
+              <span className="italic text-primary">{active.name.toLowerCase()}</span>.
             </h1>
-            <p className="mt-6 max-w-md text-base text-muted-foreground">
-              A small, considered selection of goods — from home and wardrobe to the things you carry.
-              Built to be used, kept, and passed on.
+          </div>
+          <div className="lg:col-span-5">
+            <p className="max-w-md text-base text-muted-foreground">
+              A small, growing selection of goods for bakers, makers and workspaces — chosen with
+              care, built to be used.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 to="/shop"
                 className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
@@ -51,17 +114,6 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className="lg:col-span-7">
-            <div className="overflow-hidden rounded-2xl">
-              <img
-                src={heroImage}
-                alt="Curated still life of ceramics, linen and small goods"
-                width={1600}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -70,36 +122,33 @@ function Home() {
         <div className="flex items-end justify-between gap-6">
           <div>
             <h2 className="text-3xl font-light tracking-tight sm:text-4xl">Shop by category</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Five quiet worlds to explore.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Three quiet worlds to explore.</p>
           </div>
           <Link to="/shop" className="hidden text-sm font-medium text-foreground hover:underline sm:inline">
             View all →
           </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-5">
-          {categories.map((c, i) => (
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          {categories.map((c) => (
             <Link
               key={c.slug}
               to="/category/$slug"
               params={{ slug: c.slug }}
               className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-muted"
             >
-              <div
-                className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.03]"
-                style={{
-                  background: [
-                    "linear-gradient(180deg, oklch(0.92 0.02 75), oklch(0.82 0.04 60))",
-                    "linear-gradient(180deg, oklch(0.88 0.02 80), oklch(0.6 0.05 50))",
-                    "linear-gradient(180deg, oklch(0.95 0.005 60), oklch(0.7 0.02 60))",
-                    "linear-gradient(180deg, oklch(0.9 0.04 70), oklch(0.78 0.08 30))",
-                    "linear-gradient(180deg, oklch(0.85 0.03 60), oklch(0.45 0.05 50))",
-                  ][i % 5],
-                }}
+              <img
+                src={c.image}
+                alt={c.name}
+                loading="lazy"
+                width={800}
+                height={1067}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
               />
-              <div className="absolute inset-x-0 bottom-0 p-5 text-foreground">
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/5 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5 text-background">
                 <h3 className="text-xl font-medium">{c.name}</h3>
-                <p className="mt-1 text-xs text-foreground/70">{c.tagline}</p>
+                <p className="mt-1 text-xs text-background/80">{c.tagline}</p>
               </div>
             </Link>
           ))}

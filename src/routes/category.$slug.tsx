@@ -10,9 +10,9 @@ export const Route = createFileRoute("/category/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: loaderData ? `${loaderData.category.name} — Maison` : "Category — Maison" },
+      { title: loaderData ? `${loaderData.category.name} — Trusiqq` : "Category — Trusiqq" },
       { name: "description", content: loaderData?.category.description ?? "" },
-      { property: "og:title", content: loaderData ? `${loaderData.category.name} — Maison` : "" },
+      { property: "og:title", content: loaderData ? `${loaderData.category.name} — Trusiqq` : "" },
       { property: "og:description", content: loaderData?.category.description ?? "" },
     ],
   }),
@@ -28,6 +28,29 @@ export const Route = createFileRoute("/category/$slug")({
 
 function CategoryPage() {
   const { category, products } = Route.useLoaderData();
+
+  // "More Soon" placeholder category — just announce it.
+  if (category.slug === "more-soon") {
+    return (
+      <div className="mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center px-5 py-24 text-center lg:px-8">
+        <p className="text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
+          {category.name}
+        </p>
+        <h1 className="mt-6 text-7xl font-light italic tracking-tight text-primary sm:text-8xl">
+          Soon!
+        </h1>
+        <p className="mt-6 max-w-md text-base text-muted-foreground">
+          New categories are on the way. Check back shortly.
+        </p>
+        <Link
+          to="/"
+          className="mt-10 inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium hover:bg-muted"
+        >
+          Back to home
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-5 pt-10 lg:px-8">
