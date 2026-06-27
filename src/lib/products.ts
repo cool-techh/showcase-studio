@@ -3,6 +3,7 @@ export type Category = {
   name: string;
   tagline: string;
   description: string;
+  image: string;
 };
 
 export type Product = {
@@ -15,39 +16,48 @@ export type Product = {
   badge?: string;
 };
 
+import bakeryImg from "@/assets/bakery.jpg";
+import officeImg from "@/assets/office.jpg";
+import soonImg from "@/assets/soon.jpg";
+
 export const categories: Category[] = [
-  { slug: "home", name: "Home", tagline: "Objects for slow living", description: "Ceramics, textiles, and quiet essentials that shape a calmer home." },
-  { slug: "fashion", name: "Fashion", tagline: "Considered wardrobe staples", description: "Timeless pieces in natural fibers — built to outlast trends." },
-  { slug: "tech", name: "Tech", tagline: "Tools that disappear", description: "Devices designed with restraint — useful, beautiful, unobtrusive." },
-  { slug: "beauty", name: "Beauty", tagline: "Clean rituals", description: "Skincare and fragrance with simple formulas and honest ingredients." },
-  { slug: "accessories", name: "Accessories", tagline: "Small, daily things", description: "Bags, leather goods, and the small objects you'll carry for years." },
+  {
+    slug: "bakery-supply",
+    name: "Bakery Supply",
+    tagline: "Tools of the trade",
+    description: "Equipment, packaging and essentials for bakers — built for daily use in the kitchen.",
+    image: bakeryImg,
+  },
+  {
+    slug: "office-supply",
+    name: "Office Supply",
+    tagline: "A considered workspace",
+    description: "Stationery, organisers and desk objects to bring quiet focus to your work.",
+    image: officeImg,
+  },
+  {
+    slug: "more-soon",
+    name: "More Soon",
+    tagline: "Stay updated",
+    description: "New categories landing soon. Check back shortly.",
+    image: soonImg,
+  },
 ];
 
 export const products: Product[] = [
-  { id: "linen-throw", name: "Stonewashed Linen Throw", price: 89, category: "home", description: "Heavyweight European linen, garment-washed for a softened drape.", tone: "bg-[oklch(0.92_0.02_75)]", badge: "New" },
-  { id: "ceramic-mug", name: "Hand-thrown Ceramic Mug", price: 28, category: "home", description: "Stoneware mug with raw clay base. Each piece slightly unique.", tone: "bg-[oklch(0.88_0.03_60)]" },
-  { id: "olivewood-board", name: "Olivewood Serving Board", price: 64, category: "home", description: "Single-piece olive wood, oiled by hand.", tone: "bg-[oklch(0.78_0.05_70)]" },
-  { id: "wool-blanket", name: "Merino Wool Blanket", price: 145, category: "home", description: "Woven in Portugal from undyed merino wool.", tone: "bg-[oklch(0.86_0.015_85)]" },
+  { id: "kraft-pastry-boxes", name: "Kraft Pastry Boxes (50pk)", price: 28, category: "bakery-supply", description: "Food-safe kraft boxes with window — perfect for pastries and small cakes.", tone: "bg-[oklch(0.82_0.05_70)]", badge: "New" },
+  { id: "wooden-rolling-pin", name: "French Rolling Pin", price: 34, category: "bakery-supply", description: "Tapered beechwood pin, hand-finished, weighted for even pressure.", tone: "bg-[oklch(0.78_0.05_70)]" },
+  { id: "linen-proofing-cloth", name: "Linen Proofing Cloth", price: 22, category: "bakery-supply", description: "Heavyweight European linen — for shaping loaves and dusting work surfaces.", tone: "bg-[oklch(0.93_0.015_85)]" },
+  { id: "ceramic-mixing-bowl", name: "Stoneware Mixing Bowl", price: 48, category: "bakery-supply", description: "Glazed stoneware, generous 3L capacity. Heavy enough to hold its ground.", tone: "bg-[oklch(0.88_0.03_60)]", badge: "Bestseller" },
+  { id: "twine-spool", name: "Bakery Twine Spool", price: 12, category: "bakery-supply", description: "Natural cotton twine in a brass dispenser — for tying boxes and bundles.", tone: "bg-[oklch(0.9_0.02_85)]" },
+  { id: "kraft-paper-bags", name: "Kraft Paper Bags (100pk)", price: 18, category: "bakery-supply", description: "Flat-bottom kraft bags with a soft matte finish. Recyclable.", tone: "bg-[oklch(0.85_0.04_75)]" },
 
-  { id: "linen-shirt", name: "Relaxed Linen Shirt", price: 120, category: "fashion", description: "Oversized fit, mother-of-pearl buttons, French linen.", tone: "bg-[oklch(0.93_0.015_85)]", badge: "Bestseller" },
-  { id: "wool-coat", name: "Wool Overcoat", price: 480, category: "fashion", description: "Italian wool, single-breasted, fully canvassed.", tone: "bg-[oklch(0.42_0.02_60)]" },
-  { id: "leather-loafers", name: "Leather Loafers", price: 245, category: "fashion", description: "Hand-stitched in Spain, full-grain vegetable-tanned leather.", tone: "bg-[oklch(0.55_0.06_50)]" },
-  { id: "cashmere-tee", name: "Cashmere Tee", price: 180, category: "fashion", description: "Featherweight cashmere — your softest shirt.", tone: "bg-[oklch(0.9_0.01_80)]" },
-
-  { id: "wireless-speaker", name: "Portable Speaker", price: 199, category: "tech", description: "Aluminum body, 12-hour battery, weather-sealed.", tone: "bg-[oklch(0.94_0.005_60)]", badge: "New" },
-  { id: "desk-lamp", name: "Articulating Desk Lamp", price: 175, category: "tech", description: "Solid brass arm with warm dimmable LED.", tone: "bg-[oklch(0.82_0.04_75)]" },
-  { id: "wireless-earbuds", name: "Wireless Earbuds", price: 159, category: "tech", description: "Active noise cancellation, USB-C, recycled aluminum.", tone: "bg-[oklch(0.96_0.003_60)]" },
-  { id: "e-reader", name: "Minimal E-reader", price: 229, category: "tech", description: "300 dpi e-ink, weeks of battery, no notifications.", tone: "bg-[oklch(0.3_0.01_60)]" },
-
-  { id: "face-oil", name: "Botanical Face Oil", price: 58, category: "beauty", description: "Cold-pressed seed oils in amber glass.", tone: "bg-[oklch(0.85_0.06_75)]" },
-  { id: "bar-soap", name: "Hand-milled Soap", price: 16, category: "beauty", description: "Olive oil base, scented with bergamot and vetiver.", tone: "bg-[oklch(0.9_0.02_85)]" },
-  { id: "eau-de-parfum", name: "Eau de Parfum", price: 145, category: "beauty", description: "Fig leaf, cedar, and warm musk. Unisex.", tone: "bg-[oklch(0.88_0.03_50)]", badge: "New" },
-  { id: "lip-balm", name: "Tinted Lip Balm", price: 22, category: "beauty", description: "Beeswax and shea, in a brass tin.", tone: "bg-[oklch(0.78_0.08_30)]" },
-
-  { id: "leather-tote", name: "Everyday Leather Tote", price: 320, category: "accessories", description: "Unlined vegetable-tanned leather. Patinas with use.", tone: "bg-[oklch(0.5_0.06_50)]", badge: "Bestseller" },
-  { id: "card-wallet", name: "Card Wallet", price: 95, category: "accessories", description: "Six slots, no stitching, made from a single piece of leather.", tone: "bg-[oklch(0.35_0.03_50)]" },
-  { id: "canvas-cap", name: "Waxed Canvas Cap", price: 48, category: "accessories", description: "British millerain waxed cotton, leather strap.", tone: "bg-[oklch(0.62_0.04_75)]" },
-  { id: "linen-scarf", name: "Linen Scarf", price: 72, category: "accessories", description: "Lightweight indigo-dyed linen, hand-rolled hem.", tone: "bg-[oklch(0.5_0.06_240)]" },
+  { id: "leather-notebook", name: "Full-grain Leather Notebook", price: 86, category: "office-supply", description: "Refillable A5 cover in vegetable-tanned leather. Patinas with use.", tone: "bg-[oklch(0.5_0.06_50)]", badge: "New" },
+  { id: "brass-pen", name: "Brass Ballpoint Pen", price: 42, category: "office-supply", description: "Solid brass barrel, refillable. Weighted for a steady hand.", tone: "bg-[oklch(0.72_0.07_75)]" },
+  { id: "gold-paper-clips", name: "Gold Paper Clips (set of 30)", price: 14, category: "office-supply", description: "Brass-plated clips in a glass jar. A small upgrade for the desk.", tone: "bg-[oklch(0.82_0.08_85)]" },
+  { id: "linen-folder", name: "Linen-bound Document Folder", price: 38, category: "office-supply", description: "A4 folder wrapped in natural linen with an elastic closure.", tone: "bg-[oklch(0.86_0.015_85)]", badge: "Bestseller" },
+  { id: "desk-organizer", name: "Walnut Desk Organizer", price: 110, category: "office-supply", description: "Solid walnut tray with felt-lined compartments for daily tools.", tone: "bg-[oklch(0.42_0.04_50)]" },
+  { id: "kraft-letter-set", name: "Kraft Letter Set", price: 16, category: "office-supply", description: "Twenty sheets and ten envelopes in soft kraft paper.", tone: "bg-[oklch(0.78_0.05_70)]" },
 ];
 
 export const getProduct = (id: string) => products.find((p) => p.id === id);
