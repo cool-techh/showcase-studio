@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getCategory, getProductsByCategory, categories, type Product } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
@@ -52,6 +53,14 @@ function CategoryPage() {
     );
   }
 
+  const bakerySubs = ["All", "Cake Toppers", "Party Poppers", "Candles", "Decor Items"];
+  const [activeSub, setActiveSub] = useState("All");
+
+  const filtered =
+    category.slug === "bakery-supply" && activeSub !== "All"
+      ? (products as Product[]).filter((p) => p.subcategory === activeSub)
+      : (products as Product[]);
+
   return (
     <div className="mx-auto max-w-7xl px-5 pt-10 lg:px-8">
       <nav className="text-xs text-muted-foreground">
@@ -70,8 +79,26 @@ function CategoryPage() {
         <p className="mt-4 max-w-xl text-base text-muted-foreground">{category.description}</p>
       </header>
 
+      {category.slug === "bakery-supply" && (
+        <div className="mt-8 flex gap-2 overflow-x-auto pb-2">
+          {bakerySubs.map((sub) => (
+            <button
+              key={sub}
+              onClick={() => setActiveSub(sub)}
+              className={`whitespace-nowrap rounded-full border px-4 py-2 text-xs font-medium transition-colors ${
+                activeSub === sub
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border hover:bg-muted"
+              }`}
+            >
+              {sub}
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="mt-10 grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-        {(products as Product[]).map((p) => (
+        {filtered.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
