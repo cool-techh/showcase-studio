@@ -11,6 +11,7 @@ export type Product = {
   name: string;
   price: number;
   category: string; // category slug
+  subcategory?: string; // subcategory name
   description: string;
   tone: string; // tailwind bg utility for placeholder swatch
   badge?: string;
