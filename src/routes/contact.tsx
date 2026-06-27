@@ -4,10 +4,10 @@ import { useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Maison" },
-      { name: "description", content: "Get in touch with the Maison studio." },
-      { property: "og:title", content: "Contact — Maison" },
-      { property: "og:description", content: "Get in touch with the Maison studio." },
+      { title: "Contact — Trusiqq" },
+      { name: "description", content: "Get in touch with the Trusiqq studio." },
+      { property: "og:title", content: "Contact — Trusiqq" },
+      { property: "og:description", content: "Get in touch with the Trusiqq studio." },
     ],
   }),
   component: Contact,
@@ -30,7 +30,7 @@ function Contact() {
         <dl className="mt-12 space-y-6 text-sm">
           <div>
             <dt className="text-xs uppercase tracking-wider text-muted-foreground">Email</dt>
-            <dd className="mt-1">hello@maison.studio</dd>
+            <dd className="mt-1">hello@trusiqq.com</dd>
           </div>
           <div>
             <dt className="text-xs uppercase tracking-wider text-muted-foreground">Studio</dt>

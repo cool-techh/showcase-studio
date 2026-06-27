@@ -6,10 +6,10 @@ import { ProductCard } from "@/components/ProductCard";
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
-      { title: "Shop all — Maison" },
-      { name: "description", content: "Browse the full Maison collection — every category, every piece." },
-      { property: "og:title", content: "Shop all — Maison" },
-      { property: "og:description", content: "The full Maison collection." },
+      { title: "Shop all — Trusiqq" },
+      { name: "description", content: "Browse the full Trusiqq collection — every category, every piece." },
+      { property: "og:title", content: "Shop all — Trusiqq" },
+      { property: "og:description", content: "The full Trusiqq collection." },
     ],
   }),
   component: Shop,
