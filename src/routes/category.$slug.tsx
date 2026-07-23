@@ -53,7 +53,7 @@ function CategoryPage() {
     );
   }
 
-  const bakerySubs = ["All", "Cake Toppers", "Party Poppers", "Candles", "Decor Items"];
+  const bakerySubs = ["All", "Cake Toppers & Knife", "Party Poppers", "Candles", "Decor Items"];
   const [activeSub, setActiveSub] = useState("All");
 
   const filtered =
