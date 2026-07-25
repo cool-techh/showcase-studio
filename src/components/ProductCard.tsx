@@ -48,7 +48,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-0.5 text-xs capitalize text-muted-foreground">{product.category}</p>
         </div>
         <span className="shrink-0 text-sm tabular-nums text-foreground">
-          {product.price > 0 ? `$${product.price}` : "—"}
+          {product.price > 0 ? `₹${product.price}` : "—"}
         </span>
       </div>
     </Link>
