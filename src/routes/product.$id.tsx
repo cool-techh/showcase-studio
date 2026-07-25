@@ -70,7 +70,7 @@ function ProductPage() {
             {category.name}
           </p>
           <h1 className="mt-3 text-3xl font-light tracking-tight sm:text-4xl">{p.name}</h1>
-          <div className="mt-4 text-2xl font-light tabular-nums">${p.price}</div>
+          <div className="mt-4 text-2xl font-light tabular-nums">₹{p.price}</div>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">{p.description}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
