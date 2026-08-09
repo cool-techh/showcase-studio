@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-border bg-secondary/40">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <div className="text-lg font-semibold">Trusiqq<span className="text-primary">.</span></div>
+          <div className="text-lg font-semibold">Atha<span className="text-primary">.</span></div>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             A quiet showcase of considered goods for everyday living.
           </p>
@@ -48,7 +48,7 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-5 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center lg:px-8">
-          <span>© {new Date().getFullYear()} Trusiqq. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Atha. All rights reserved.</span>
           <span>Showcase site — not yet open for orders.</span>
         </div>
       </div>

@@ -7,9 +7,9 @@ import { ProductCard } from "@/components/ProductCard";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Trusiqq — Bakery & Office Supplies" },
+      { title: "Atha — Bakery & Office Supplies" },
       { name: "description", content: "A minimalist showcase of bakery and office supplies — considered goods for makers and workspaces." },
-      { property: "og:title", content: "Trusiqq — Bakery & Office Supplies" },
+      { property: "og:title", content: "Atha — Bakery & Office Supplies" },
       { property: "og:description", content: "A minimalist showcase of bakery and office supplies." },
     ],
   }),
@@ -87,7 +87,7 @@ function Home() {
         <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              Trusiqq — 2026
+              Atha — 2026
             </p>
             <h1 className="mt-4 text-5xl font-light leading-[1.05] tracking-tight text-foreground sm:text-6xl">
               Considered supplies for{" "}

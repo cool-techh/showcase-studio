@@ -79,9 +79,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Trusiqq — Bakery & Office Supplies" },
+      { title: "Atha — Bakery & Office Supplies" },
       { name: "description", content: "A minimalist showcase of bakery and office supplies — considered goods for makers and workspaces." },
-      { property: "og:title", content: "Trusiqq — Bakery & Office Supplies" },
+      { property: "og:title", content: "Atha — Bakery & Office Supplies" },
       { property: "og:description", content: "A minimalist showcase of bakery and office supplies." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

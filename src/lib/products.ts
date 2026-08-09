@@ -48,7 +48,7 @@ export const categories: Category[] = [
 ];
 
 export const products: Product[] = [
-  // ===== Trusiqq catalogue (from spreadsheet) =====
+  // ===== Atha catalogue (from spreadsheet) =====
   { id: "tq-number-candle", name: "Number Candle", price: 15, category: "bakery-supply", subcategory: "Candles", description: "Numeric birthday candles for cakes — clean shapes, steady burn.", tone: "bg-[oklch(0.9_0.03_80)]", status: "in-stock", image: "https://loremflickr.com/800/1000/number,candle,birthday" },
   { id: "tq-spiral-candle", name: "Spiral Candle", price: 17, category: "bakery-supply", subcategory: "Candles", description: "Slim spiral twist candles in soft pastel tones.", tone: "bg-[oklch(0.88_0.04_60)]", status: "in-stock", image: "https://loremflickr.com/800/1000/spiral,candle" },
   { id: "tq-mdf-topper", name: "MDF Topper (5 inch, 2 mm)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Laser-cut MDF cake topper — 5 inch, 2 mm thickness. Price per piece.", tone: "bg-[oklch(0.82_0.05_70)]", status: "in-stock", image: "https://loremflickr.com/800/1000/cake,topper,wood" },
