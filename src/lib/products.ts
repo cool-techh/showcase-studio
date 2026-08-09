@@ -33,6 +33,16 @@ import t7 from "@/assets/toppers/topper-7.jpeg.asset.json";
 import t8 from "@/assets/toppers/topper-8.jpeg.asset.json";
 import t9 from "@/assets/toppers/topper-9.jpeg.asset.json";
 import t10 from "@/assets/toppers/topper-10.jpeg.asset.json";
+import t11 from "@/assets/toppers/topper-11.jpeg.asset.json";
+import t12 from "@/assets/toppers/topper-12.jpeg.asset.json";
+import t13 from "@/assets/toppers/topper-13.jpeg.asset.json";
+import t14 from "@/assets/toppers/topper-14.jpeg.asset.json";
+import t15 from "@/assets/toppers/topper-15.jpeg.asset.json";
+import t16 from "@/assets/toppers/topper-16.jpeg.asset.json";
+import t17 from "@/assets/toppers/topper-17.jpeg.asset.json";
+import t18 from "@/assets/toppers/topper-18.jpeg.asset.json";
+import t19 from "@/assets/toppers/topper-19.jpeg.asset.json";
+import t20 from "@/assets/toppers/topper-20.jpeg.asset.json";
 
 export const categories: Category[] = [
   {
@@ -70,6 +80,16 @@ export const products: Product[] = [
   { id: "tp-farewell-gold", name: "Farewell Topper — Gold Mirror", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Geometric frame Farewell topper in mirror gold. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t8.url },
   { id: "tp-best-dad", name: "Best Dad Topper — Silver Glitter", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Best Dad script topper in silver glitter MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.88_0.01_260)]", status: "in-stock", image: t9.url },
   { id: "tp-anniversary-rings", name: "Happy Anniversary Topper — Silver Rings", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Silver glitter Happy Anniversary topper with interlocking rings. Size 4.45\"–5\".", tone: "bg-[oklch(0.88_0.01_260)]", status: "in-stock", image: t10.url },
+  { id: "tp-hbd-name-black", name: "Happy Birthday Topper — Name Script Black", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "MDF Happy Birthday topper in matte black script with a name cut-out. Size 4.45\"–5\".", tone: "bg-[oklch(0.9_0.01_260)]", status: "in-stock", image: t11.url },
+  { id: "tp-hbd-classic-black", name: "Happy Birthday Topper — Classic Black", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Clean classic script Happy Birthday MDF topper in black. Size 4.45\"–5\".", tone: "bg-[oklch(0.9_0.01_260)]", status: "in-stock", image: t12.url },
+  { id: "tp-just-engaged-couple", name: "Just Engaged Topper — Couple Heart", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Just Engaged MDF topper with couple silhouette inside a heart and ring motif. Size 4.45\"–5\".", tone: "bg-[oklch(0.9_0.01_260)]", status: "in-stock", image: t13.url },
+  { id: "tp-just-engaged-ring", name: "Just Engaged Topper — Ring Script", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Just Engaged script topper with diamond ring detail in matte black MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.9_0.01_260)]", status: "in-stock", image: t14.url },
+  { id: "tp-moon-couple-gold", name: "Couple Moon Topper — Gold Mirror", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Crescent moon topper with couple silhouette and stars in mirror gold. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t15.url },
+  { id: "tp-anniversary-blue", name: "Happy Anniversary Topper — Blue Glitter Couple", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Blue glitter Happy Anniversary topper with couple silhouette. Size 4.45\"–5\".", tone: "bg-[oklch(0.82_0.08_240)]", status: "in-stock", image: t16.url },
+  { id: "tp-bride-to-be", name: "Bride To Be Topper — Gold Glitter", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Bride To Be script topper in gold glitter MDF — ideal for bridal showers. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t17.url },
+  { id: "tp-best-mom", name: "Best Mom Topper — Gold Glitter", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Best Mom script topper in gold glitter MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t18.url },
+  { id: "tp-one-month-gold", name: "One Month Topper — Gold Mirror", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "One Month milestone topper with balloon detailing in mirror gold. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t19.url },
+  { id: "tp-hbd-circle-gold", name: "Happy Birthday Topper — Gold Circle Frame", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Scalloped circle frame Happy Birthday topper in mirror gold. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t20.url },
 
   // ===== Atha catalogue (from spreadsheet) =====
   { id: "tq-number-candle", name: "Number Candle", price: 15, category: "bakery-supply", subcategory: "Candles", description: "Numeric birthday candles for cakes — clean shapes, steady burn.", tone: "bg-[oklch(0.9_0.03_80)]", status: "in-stock" },
