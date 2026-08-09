@@ -12,9 +12,9 @@ export const Route = createFileRoute("/product/$id")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: loaderData ? `${loaderData.product.name} — Trusiqq` : "Product — Trusiqq" },
+      { title: loaderData ? `${loaderData.product.name} — Atha` : "Product — Atha" },
       { name: "description", content: loaderData?.product.description ?? "" },
-      { property: "og:title", content: loaderData ? `${loaderData.product.name} — Trusiqq` : "" },
+      { property: "og:title", content: loaderData ? `${loaderData.product.name} — Atha` : "" },
       { property: "og:description", content: loaderData?.product.description ?? "" },
     ],
   }),
@@ -53,16 +53,21 @@ function ProductPage() {
 
       <div className="mt-6 grid gap-10 lg:grid-cols-2">
         <div className={`relative aspect-square overflow-hidden rounded-2xl ${p.tone}`}>
+          {p.image && (
+            <img src={p.image} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />
+          )}
           {p.badge && (
             <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1 text-[10px] font-medium uppercase tracking-wider">
               {p.badge}
             </span>
           )}
-          <div className="absolute inset-0 flex items-end p-8">
-            <span className="font-display text-7xl font-light leading-none text-foreground/30">
-              {p.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
-            </span>
-          </div>
+          {!p.image && (
+            <div className="absolute inset-0 flex items-end p-8">
+              <span className="font-display text-7xl font-light leading-none text-foreground/30">
+                {p.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col">

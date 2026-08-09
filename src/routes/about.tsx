@@ -3,9 +3,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Trusiqq" },
+      { title: "About — Atha" },
       { name: "description", content: "A small studio curating considered goods for everyday living." },
-      { property: "og:title", content: "About — Trusiqq" },
+      { property: "og:title", content: "About — Atha" },
       { property: "og:description", content: "A small studio curating considered goods." },
     ],
   }),
@@ -19,12 +19,12 @@ function About() {
         Our story
       </p>
       <h1 className="mt-4 text-4xl font-light leading-tight tracking-tight sm:text-5xl">
-        We started Trusiqq because we wanted to <em className="italic text-primary">own less, better</em>.
+        We started Atha because we wanted to <em className="italic text-primary">own less, better</em>.
       </h1>
 
       <div className="mt-12 space-y-6 text-base leading-relaxed text-foreground/80">
         <p>
-          Trusiqq is a small, independent studio. We choose objects with care — pieces made by
+          Atha is a small, independent studio. We choose objects with care — pieces made by
           people we know, in materials we trust, designed to last well beyond a season.
         </p>
         <p>
