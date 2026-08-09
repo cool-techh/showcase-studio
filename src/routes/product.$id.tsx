@@ -62,9 +62,9 @@ function ProductPage() {
             </span>
           )}
           {!p.image && (
-            <div className="absolute inset-0 flex items-end p-8">
-              <span className="font-display text-7xl font-light leading-none text-foreground/30">
-                {p.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+            <div className="absolute inset-0 flex items-center justify-center p-8">
+              <span className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/40">
+                No image available
               </span>
             </div>
           )}
