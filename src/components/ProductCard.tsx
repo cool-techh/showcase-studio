@@ -29,9 +29,9 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         )}
         {!product.image && (
-          <div className="absolute inset-0 flex items-end p-5">
-            <span className="font-display text-2xl font-light leading-none text-foreground/40">
-              {product.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+          <div className="absolute inset-0 flex items-center justify-center p-5">
+            <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-foreground/40">
+              No image available
             </span>
           </div>
         )}
