@@ -23,6 +23,17 @@ import bakeryImg from "@/assets/bakery.jpg";
 import officeImg from "@/assets/office.jpg";
 import soonImg from "@/assets/soon.jpg";
 
+import t1 from "@/assets/toppers/topper-1.jpeg.asset.json";
+import t2 from "@/assets/toppers/topper-2.jpeg.asset.json";
+import t3 from "@/assets/toppers/topper-3.jpeg.asset.json";
+import t4 from "@/assets/toppers/topper-4.jpeg.asset.json";
+import t5 from "@/assets/toppers/topper-5.jpeg.asset.json";
+import t6 from "@/assets/toppers/topper-6.jpeg.asset.json";
+import t7 from "@/assets/toppers/topper-7.jpeg.asset.json";
+import t8 from "@/assets/toppers/topper-8.jpeg.asset.json";
+import t9 from "@/assets/toppers/topper-9.jpeg.asset.json";
+import t10 from "@/assets/toppers/topper-10.jpeg.asset.json";
+
 export const categories: Category[] = [
   {
     slug: "bakery-supply",
@@ -48,6 +59,18 @@ export const categories: Category[] = [
 ];
 
 export const products: Product[] = [
+  // ===== MDF / Acrylic toppers (photos) =====
+  { id: "tp-happy-birthday-red", name: "Happy Birthday Topper — Red Glitter", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "MDF Happy Birthday cake topper in red glitter script. Size 4.45\"–5\". Premium MDF, lightweight and durable.", tone: "bg-[oklch(0.85_0.06_20)]", status: "in-stock", image: t1.url },
+  { id: "tp-happy-birthday-stars", name: "Happy Birthday Topper — Black Stars", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "MDF Happy Birthday topper with star cut-outs in matte black. Size 4.45\"–5\".", tone: "bg-[oklch(0.9_0.01_260)]", status: "in-stock", image: t2.url },
+  { id: "tp-happy-birthday-script", name: "Happy Birthday Topper — Black Script", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Classic script Happy Birthday MDF topper in glossy black. Size 4.45\"–5\".", tone: "bg-[oklch(0.9_0.01_260)]", status: "in-stock", image: t3.url },
+  { id: "tp-happy-birthday-blue", name: "Happy Birthday Topper — Blue Glitter", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Sparkling blue glitter Happy Birthday MDF topper. Size 4.45\"–5\".", tone: "bg-[oklch(0.82_0.08_240)]", status: "in-stock", image: t4.url },
+  { id: "tp-anniversary-gold", name: "Happy Anniversary Topper — Gold Mirror", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Mirror-gold Happy Anniversary topper with heart detailing. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t5.url },
+  { id: "tp-mr-mrs-gold", name: "Mr & Mrs Topper — Gold Mirror", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Mr & Mrs ring-motif topper in mirror gold — perfect for weddings. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t6.url },
+  { id: "tp-anniversary-couple", name: "Happy Anniversary Topper — Couple Silver", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Silver glitter Happy Anniversary topper with couple silhouette. Size 4.45\"–5\".", tone: "bg-[oklch(0.88_0.01_260)]", status: "in-stock", image: t7.url },
+  { id: "tp-farewell-gold", name: "Farewell Topper — Gold Mirror", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Geometric frame Farewell topper in mirror gold. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t8.url },
+  { id: "tp-best-dad", name: "Best Dad Topper — Silver Glitter", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Best Dad script topper in silver glitter MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.88_0.01_260)]", status: "in-stock", image: t9.url },
+  { id: "tp-anniversary-rings", name: "Happy Anniversary Topper — Silver Rings", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Silver glitter Happy Anniversary topper with interlocking rings. Size 4.45\"–5\".", tone: "bg-[oklch(0.88_0.01_260)]", status: "in-stock", image: t10.url },
+
   // ===== Atha catalogue (from spreadsheet) =====
   { id: "tq-number-candle", name: "Number Candle", price: 15, category: "bakery-supply", subcategory: "Candles", description: "Numeric birthday candles for cakes — clean shapes, steady burn.", tone: "bg-[oklch(0.9_0.03_80)]", status: "in-stock", image: "https://loremflickr.com/800/1000/number,candle,birthday" },
   { id: "tq-spiral-candle", name: "Spiral Candle", price: 17, category: "bakery-supply", subcategory: "Candles", description: "Slim spiral twist candles in soft pastel tones.", tone: "bg-[oklch(0.88_0.04_60)]", status: "in-stock", image: "https://loremflickr.com/800/1000/spiral,candle" },
