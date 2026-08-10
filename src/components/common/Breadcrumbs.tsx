@@ -19,7 +19,7 @@ export function Breadcrumbs({ items }: { items: ReactNode[] }) {
 
 export function CrumbLink({ to, children }: { to: string; children: ReactNode }) {
   return (
-    <Link to={to} className="hover:text-foreground">
+    <Link to={to as never} className="hover:text-foreground">
       {children}
     </Link>
   );
