@@ -1,23 +1,34 @@
+/**
+ * ROUTE LAYER — "/shop" full collection with category filter.
+ */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { categories, products } from "@/lib/products";
-import { ProductCard } from "@/components/ProductCard";
+import {
+  ALL_FILTER,
+  countProductsInCategory,
+  filterByCategory,
+  listCategories,
+  listProducts,
+} from "@/domain/catalog";
+import { buildMeta, pageTitle } from "@/config/seo";
+import { FilterChip } from "@/components/common/FilterChip";
+import { ProductGrid } from "@/components/product/ProductGrid";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
-    meta: [
-      { title: "Shop all — Atha" },
-      { name: "description", content: "Browse the full Atha collection — every category, every piece." },
-      { property: "og:title", content: "Shop all — Atha" },
-      { property: "og:description", content: "The full Atha collection." },
-    ],
+    meta: buildMeta(
+      pageTitle("Shop all"),
+      "Browse the full Atha collection — every category, every piece.",
+    ),
   }),
   component: Shop,
 });
 
 function Shop() {
-  const [active, setActive] = useState<string>("all");
-  const visible = active === "all" ? products : products.filter((p) => p.category === active);
+  const categories = listCategories();
+  const products = listProducts();
+  const [active, setActive] = useState<string>(ALL_FILTER);
+  const visible = filterByCategory(active);
 
   return (
     <div className="mx-auto max-w-7xl px-5 pt-10 lg:px-8">
@@ -32,44 +43,26 @@ function Shop() {
       </header>
 
       <div className="sticky top-16 z-30 -mx-5 mt-6 flex gap-2 overflow-x-auto bg-background/85 px-5 py-3 backdrop-blur lg:-mx-8 lg:px-8">
-        <FilterChip label={`All (${products.length})`} active={active === "all"} onClick={() => setActive("all")} />
-        {categories.map((c) => {
-          const count = products.filter((p) => p.category === c.slug).length;
-          return (
-            <FilterChip
-              key={c.slug}
-              label={`${c.name} (${count})`}
-              active={active === c.slug}
-              onClick={() => setActive(c.slug)}
-            />
-          );
-        })}
-      </div>
-
-      <div className="mt-8 grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-        {visible.map((p) => (
-          <ProductCard key={p.id} product={p} />
+        <FilterChip
+          label={`All (${products.length})`}
+          active={active === ALL_FILTER}
+          onClick={() => setActive(ALL_FILTER)}
+        />
+        {categories.map((c) => (
+          <FilterChip
+            key={c.slug}
+            label={`${c.name} (${countProductsInCategory(c.slug)})`}
+            active={active === c.slug}
+            onClick={() => setActive(c.slug)}
+          />
         ))}
       </div>
+
+      <ProductGrid products={visible} className="mt-8" />
 
       <p className="mt-16 text-center text-xs text-muted-foreground">
         Looking for something specific? <Link to="/contact" className="underline">Get in touch</Link>.
       </p>
     </div>
-  );
-}
-
-function FilterChip({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
-  return (
-    <button
-      onClick={onClick}
-      className={`shrink-0 rounded-full border px-4 py-1.5 text-xs font-medium transition-colors ${
-        active
-          ? "border-foreground bg-foreground text-background"
-          : "border-border bg-background text-foreground hover:bg-muted"
-      }`}
-    >
-      {label}
-    </button>
   );
 }

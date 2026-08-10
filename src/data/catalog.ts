@@ -1,23 +1,12 @@
-export type Category = {
-  slug: string;
-  name: string;
-  tagline: string;
-  description: string;
-  image: string;
-};
-
-export type Product = {
-  id: string;
-  name: string;
-  price: number;
-  category: string; // category slug
-  subcategory?: string; // subcategory name
-  description: string;
-  tone: string; // tailwind bg utility for placeholder swatch
-  badge?: string;
-  image?: string; // optional external image URL
-  status?: "in-stock" | "unavailable" | "not-in-stock";
-};
+/**
+ * DATA LAYER — catalog content only.
+ *
+ * This file is the single source of truth for what the shop sells.
+ * It contains NO logic and NO UI. To add/edit a product or category,
+ * edit this file only. Read/search/filter helpers live in
+ * `src/domain/catalog.ts`.
+ */
+import type { Category, Product } from "./types";
 
 import bakeryImg from "@/assets/bakery.jpg";
 import officeImg from "@/assets/office.jpg";
@@ -115,7 +104,3 @@ export const products: Product[] = [
   { id: "desk-organizer", name: "Walnut Desk Organizer", price: 110, category: "office-supply", description: "Solid walnut tray with felt-lined compartments for daily tools.", tone: "bg-[oklch(0.42_0.04_50)]" },
   { id: "kraft-letter-set", name: "Kraft Letter Set", price: 16, category: "office-supply", description: "Twenty sheets and ten envelopes in soft kraft paper.", tone: "bg-[oklch(0.78_0.05_70)]" },
 ];
-
-export const getProduct = (id: string) => products.find((p) => p.id === id);
-export const getCategory = (slug: string) => categories.find((c) => c.slug === slug);
-export const getProductsByCategory = (slug: string) => products.filter((p) => p.category === slug);

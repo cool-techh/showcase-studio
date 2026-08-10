@@ -1,19 +1,16 @@
+/**
+ * UI LAYER — presentational product card.
+ * Receives a product, renders it. All formatting comes from the domain layer.
+ */
 import { Link } from "@tanstack/react-router";
-import type { Product } from "@/lib/products";
+import type { Product } from "@/data/types";
+import { formatPrice, getStatusLabel } from "@/domain/presentation";
 
 export function ProductCard({ product }: { product: Product }) {
-  const statusLabel =
-    product.status === "unavailable"
-      ? "Temporarily unavailable"
-      : product.status === "not-in-stock"
-      ? "Not in stock"
-      : null;
+  const statusLabel = getStatusLabel(product);
+
   return (
-    <Link
-      to="/product/$id"
-      params={{ id: product.id }}
-      className="group block"
-    >
+    <Link to="/product/$id" params={{ id: product.id }} className="group block">
       <div className={`relative aspect-[4/5] overflow-hidden rounded-xl ${product.tone}`}>
         {product.image && (
           <img
@@ -48,7 +45,7 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-0.5 text-xs capitalize text-muted-foreground">{product.category}</p>
         </div>
         <span className="shrink-0 text-sm tabular-nums text-foreground">
-          {product.price > 0 ? `₹${product.price}` : "—"}
+          {formatPrice(product.price)}
         </span>
       </div>
     </Link>

@@ -1,93 +1,41 @@
+/**
+ * ROUTE LAYER — "/" home page.
+ * Composes UI components; all data comes from the domain layer.
+ */
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { categories, products } from "@/lib/products";
-import { ProductCard } from "@/components/ProductCard";
+import { getFeaturedProducts, listCategories } from "@/domain/catalog";
+import { buildMeta } from "@/config/seo";
+import { site } from "@/config/site";
+import { useCarousel } from "@/hooks/use-carousel";
+import { HeroCarousel } from "@/components/home/HeroCarousel";
+import { CategoryTiles } from "@/components/home/CategoryTiles";
+import { ProductGrid } from "@/components/product/ProductGrid";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Atha — Bakery & Office Supplies" },
-      { name: "description", content: "A minimalist showcase of bakery and office supplies — considered goods for makers and workspaces." },
-      { property: "og:title", content: "Atha — Bakery & Office Supplies" },
-      { property: "og:description", content: "A minimalist showcase of bakery and office supplies." },
-    ],
+    meta: buildMeta(`${site.name} — ${site.tagline}`, site.description),
   }),
   component: Home,
 });
 
 function Home() {
-  const featured = products.filter((p) => p.badge).slice(0, 8);
-  const [slide, setSlide] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setSlide((s) => (s + 1) % categories.length);
-    }, 4500);
-    return () => clearInterval(id);
-  }, []);
-
+  const categories = listCategories();
+  const featured = getFeaturedProducts();
+  const { index: slide, setIndex } = useCarousel(categories.length);
   const active = categories[slide];
 
   return (
     <div>
       {/* Hero carousel — one slide per category */}
       <section className="mx-auto max-w-7xl px-5 pt-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl bg-muted">
-          <div className="relative aspect-[16/10] sm:aspect-[16/8] lg:aspect-[16/7]">
-            {categories.map((c, i) => (
-              <Link
-                key={c.slug}
-                to="/category/$slug"
-                params={{ slug: c.slug }}
-                aria-label={`View ${c.name}`}
-                className={`absolute inset-0 transition-opacity duration-700 ease-out ${
-                  i === slide ? "opacity-100" : "pointer-events-none opacity-0"
-                }`}
-              >
-                <img
-                  src={c.image}
-                  alt={`${c.name} — ${c.tagline}`}
-                  width={1600}
-                  height={1000}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 text-background sm:p-10">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-background/80">
-                    Category {i + 1} of {categories.length}
-                  </p>
-                  <h2 className="mt-3 text-3xl font-light tracking-tight sm:text-5xl">
-                    {c.name}
-                  </h2>
-                  <p className="mt-2 max-w-md text-sm text-background/85 sm:text-base">
-                    {c.tagline}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Dots */}
-          <div className="absolute bottom-4 right-4 flex gap-2 sm:bottom-6 sm:right-6">
-            {categories.map((c, i) => (
-              <button
-                key={c.slug}
-                onClick={() => setSlide(i)}
-                aria-label={`Show ${c.name}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === slide ? "w-8 bg-background" : "w-4 bg-background/50 hover:bg-background/80"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        <HeroCarousel categories={categories} slide={slide} onSelect={setIndex} />
 
         {/* Headline + CTA */}
         <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              Atha — 2026
+              {site.name} — {site.year}
             </p>
             <h1 className="mt-4 text-5xl font-light leading-[1.05] tracking-tight text-foreground sm:text-6xl">
               Considered supplies for{" "}
@@ -129,30 +77,7 @@ function Home() {
           </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {categories.map((c) => (
-            <Link
-              key={c.slug}
-              to="/category/$slug"
-              params={{ slug: c.slug }}
-              className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-muted"
-            >
-              <img
-                src={c.image}
-                alt={c.name}
-                loading="lazy"
-                width={800}
-                height={1067}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/5 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5 text-background">
-                <h3 className="text-xl font-medium">{c.name}</h3>
-                <p className="mt-1 text-xs text-background/80">{c.tagline}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <CategoryTiles categories={categories} />
       </section>
 
       {/* Featured */}
@@ -163,11 +88,7 @@ function Home() {
             <p className="mt-2 text-sm text-muted-foreground">Recently added to the collection.</p>
           </div>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-          {featured.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
+        <ProductGrid products={featured} className="mt-10" />
       </section>
 
       {/* Editorial */}

@@ -1,16 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Search, ShoppingBag } from "lucide-react";
-import { categories } from "@/lib/products";
+import { listCategories } from "@/domain/catalog";
+import { site } from "@/config/site";
 
+/**
+ * UI LAYER — site header + mobile nav.
+ */
 export function Header() {
   const [open, setOpen] = useState(false);
+  const categories = listCategories();
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link to="/" className="text-xl font-semibold tracking-tight">
-          Atha<span className="text-primary">.</span>
+          {site.name}<span className="text-primary">.</span>
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">

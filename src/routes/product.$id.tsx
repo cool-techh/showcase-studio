@@ -1,55 +1,56 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getProduct, getCategory, getProductsByCategory, type Product } from "@/lib/products";
-import { ProductCard } from "@/components/ProductCard";
+/**
+ * ROUTE LAYER — "/product/$id" product detail.
+ */
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { notFound } from "@tanstack/react-router";
+import { getCategory, getProduct, getRelatedProducts } from "@/domain/catalog";
+import { formatPrice, formatSku } from "@/domain/presentation";
+import { buildMeta, pageTitle } from "@/config/seo";
+import { Breadcrumbs, CrumbLink } from "@/components/common/Breadcrumbs";
+import { PageMessage } from "@/components/common/PageMessage";
+import { ProductGrid } from "@/components/product/ProductGrid";
 
 export const Route = createFileRoute("/product/$id")({
   loader: ({ params }) => {
     const product = getProduct(params.id);
     if (!product) throw notFound();
     const category = getCategory(product.category)!;
-    const related = getProductsByCategory(product.category).filter((p) => p.id !== product.id).slice(0, 4);
+    const related = getRelatedProducts(product.category, product.id);
     return { product, category, related };
   },
   head: ({ loaderData }) => ({
-    meta: [
-      { title: loaderData ? `${loaderData.product.name} — Atha` : "Product — Atha" },
-      { name: "description", content: loaderData?.product.description ?? "" },
-      { property: "og:title", content: loaderData ? `${loaderData.product.name} — Atha` : "" },
-      { property: "og:description", content: loaderData?.product.description ?? "" },
-    ],
+    meta: buildMeta(
+      loaderData ? pageTitle(loaderData.product.name) : pageTitle("Product"),
+      loaderData?.product.description ?? "",
+    ),
   }),
   notFoundComponent: () => (
-    <div className="mx-auto max-w-xl px-5 py-24 text-center">
-      <h1 className="text-2xl font-light">Product not found</h1>
-      <Link to="/shop" className="mt-6 inline-block rounded-full border border-border px-5 py-2 text-sm">
-        Browse all
-      </Link>
-    </div>
+    <PageMessage title="Product not found" action={{ to: "/shop", label: "Browse all" }} />
   ),
   errorComponent: ({ error }) => (
-    <div className="mx-auto max-w-xl px-5 py-24 text-center">
-      <h1 className="text-2xl font-light">Something went wrong</h1>
-      <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
-    </div>
+    <PageMessage title="Something went wrong" body={error.message} />
   ),
   component: ProductPage,
 });
 
 function ProductPage() {
-  const { product, category, related } = Route.useLoaderData();
-  const p = product as Product;
+  const { product: p, category, related } = Route.useLoaderData();
 
   return (
     <div className="mx-auto max-w-7xl px-5 pt-10 lg:px-8">
-      <nav className="text-xs text-muted-foreground">
-        <Link to="/" className="hover:text-foreground">Home</Link>
-        <span className="px-1.5">/</span>
-        <Link to="/category/$slug" params={{ slug: category.slug }} className="hover:text-foreground">
-          {category.name}
-        </Link>
-        <span className="px-1.5">/</span>
-        <span className="text-foreground">{p.name}</span>
-      </nav>
+      <Breadcrumbs
+        items={[
+          <CrumbLink to="/">Home</CrumbLink>,
+          <Link
+            to="/category/$slug"
+            params={{ slug: category.slug }}
+            className="hover:text-foreground"
+          >
+            {category.name}
+          </Link>,
+          <span className="text-foreground">{p.name}</span>,
+        ]}
+      />
 
       <div className="mt-6 grid gap-10 lg:grid-cols-2">
         <div className={`relative aspect-square overflow-hidden rounded-2xl ${p.tone}`}>
@@ -75,7 +76,7 @@ function ProductPage() {
             {category.name}
           </p>
           <h1 className="mt-3 text-3xl font-light tracking-tight sm:text-4xl">{p.name}</h1>
-          <div className="mt-4 text-2xl font-light tabular-nums">₹{p.price}</div>
+          <div className="mt-4 text-2xl font-light tabular-nums">{formatPrice(p.price)}</div>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">{p.description}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -94,22 +95,10 @@ function ProductPage() {
           </div>
 
           <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-border pt-8 text-sm">
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">Category</dt>
-              <dd className="mt-1 text-foreground">{category.name}</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">SKU</dt>
-              <dd className="mt-1 text-foreground">{p.id.toUpperCase()}</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">Shipping</dt>
-              <dd className="mt-1 text-foreground">Worldwide</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">Returns</dt>
-              <dd className="mt-1 text-foreground">30 days</dd>
-            </div>
+            <Spec label="Category" value={category.name} />
+            <Spec label="SKU" value={formatSku(p)} />
+            <Spec label="Shipping" value="Worldwide" />
+            <Spec label="Returns" value="30 days" />
           </dl>
         </div>
       </div>
@@ -117,13 +106,18 @@ function ProductPage() {
       {related.length > 0 && (
         <section className="mt-24 border-t border-border pt-12">
           <h2 className="text-2xl font-light tracking-tight">You may also like</h2>
-          <div className="mt-8 grid grid-cols-2 gap-5 sm:gap-6 md:grid-cols-4">
-            {(related as Product[]).map((r) => (
-              <ProductCard key={r.id} product={r} />
-            ))}
-          </div>
+          <ProductGrid products={related} className="mt-8 md:grid-cols-4" />
         </section>
       )}
+    </div>
+  );
+}
+
+function Spec({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="text-xs uppercase tracking-wider text-muted-foreground">{label}</dt>
+      <dd className="mt-1 text-foreground">{value}</dd>
     </div>
   );
 }
