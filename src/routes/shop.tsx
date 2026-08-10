@@ -42,7 +42,7 @@ function Shop() {
         </p>
       </header>
 
-      <div className="sticky top-16 z-30 -mx-5 mt-6 flex gap-2 overflow-x-auto bg-background/90 px-5 py-3 backdrop-blur lg:-mx-8 lg:px-8">
+      <div className="sticky top-16 z-30 -mx-5 mt-6 flex gap-2 overflow-x-auto bg-background/85 px-5 py-3 backdrop-blur lg:-mx-8 lg:px-8">
         <FilterChip
           label={`All (${products.length})`}
           active={active === ALL_FILTER}
