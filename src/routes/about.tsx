@@ -1,13 +1,15 @@
+/**
+ * ROUTE LAYER — "/about" studio story.
+ */
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { buildMeta, pageTitle } from "@/config/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About — Atha" },
-      { name: "description", content: "A small studio curating considered goods for everyday living." },
-      { property: "og:title", content: "About — Atha" },
-      { property: "og:description", content: "A small studio curating considered goods." },
-    ],
+    meta: buildMeta(
+      pageTitle("About"),
+      "A small studio curating considered goods for everyday living.",
+    ),
   }),
   component: About,
 });

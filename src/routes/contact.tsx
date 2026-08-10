@@ -1,14 +1,14 @@
+/**
+ * ROUTE LAYER — "/contact" enquiry form (local state only, no backend yet).
+ */
 import { createFileRoute } from "@tanstack/react-router";
+import { buildMeta, pageTitle } from "@/config/seo";
+import { site } from "@/config/site";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
-    meta: [
-      { title: "Contact — Atha" },
-      { name: "description", content: "Get in touch with the Atha studio." },
-      { property: "og:title", content: "Contact — Atha" },
-      { property: "og:description", content: "Get in touch with the Atha studio." },
-    ],
+    meta: buildMeta(pageTitle("Contact"), "Get in touch with the Atha studio."),
   }),
   component: Contact,
 });
@@ -30,15 +30,15 @@ function Contact() {
         <dl className="mt-12 space-y-6 text-sm">
           <div>
             <dt className="text-xs uppercase tracking-wider text-muted-foreground">Email</dt>
-            <dd className="mt-1">hello@trusiqq.com</dd>
+            <dd className="mt-1">{site.email}</dd>
           </div>
           <div>
             <dt className="text-xs uppercase tracking-wider text-muted-foreground">Studio</dt>
-            <dd className="mt-1">14 Rue des Artisans, Paris</dd>
+            <dd className="mt-1">{site.studio}</dd>
           </div>
           <div>
             <dt className="text-xs uppercase tracking-wider text-muted-foreground">Hours</dt>
-            <dd className="mt-1">Mon–Fri, 10:00 – 18:00 CET</dd>
+            <dd className="mt-1">{site.hours}</dd>
           </div>
         </dl>
       </div>
