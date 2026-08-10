@@ -19,7 +19,7 @@ export function PageMessage({
       {body && <p className="mt-2 text-sm text-muted-foreground">{body}</p>}
       {action && (
         <Link
-          to={action.to}
+          to={action.to as never}
           className="mt-6 inline-block rounded-full border border-border px-5 py-2 text-sm"
         >
           {action.label}
