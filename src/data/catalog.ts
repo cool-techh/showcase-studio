@@ -82,25 +82,7 @@ export const products: Product[] = [
 
   // ===== Atha catalogue (from spreadsheet) =====
   { id: "tq-number-candle", name: "Number Candle", price: 15, category: "bakery-supply", subcategory: "Candles", description: "Numeric birthday candles for cakes — clean shapes, steady burn.", tone: "bg-[oklch(0.9_0.03_80)]", status: "in-stock" },
-  { id: "tq-spiral-candle", name: "Spiral Candle", price: 17, category: "bakery-supply", subcategory: "Candles", description: "Slim spiral twist candles in soft pastel tones.", tone: "bg-[oklch(0.88_0.04_60)]", status: "in-stock" },
-  { id: "tq-mdf-topper", name: "MDF Topper (5 inch, 2 mm)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Laser-cut MDF cake topper — 5 inch, 2 mm thickness. Price per piece.", tone: "bg-[oklch(0.82_0.05_70)]", status: "in-stock" },
-  { id: "tq-acrylic-topper", name: "Acrylic Topper (5 inch, 2 mm)", price: 18, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Mirror-finish acrylic cake topper — 5 inch, 2 mm thickness. Price per piece.", tone: "bg-[oklch(0.85_0.06_80)]", status: "in-stock" },
-  { id: "tq-knife", name: "Cake Knife", price: 0, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Decorative cake-cutting knife.", tone: "bg-[oklch(0.9_0.01_260)]", status: "not-in-stock" },
-  { id: "tq-sash", name: "Birthday Sash", price: 11, category: "bakery-supply", subcategory: "Decor Items", description: "Satin birthday sash — soft finish, adjustable fit.", tone: "bg-[oklch(0.85_0.06_20)]", status: "in-stock" },
-  { id: "tq-metallic-balloon", name: "Metallic Balloon", price: 0, category: "bakery-supply", subcategory: "Decor Items", description: "Glossy metallic-finish balloons for celebrations.", tone: "bg-[oklch(0.78_0.08_85)]", status: "unavailable" },
-  { id: "tq-normal-balloon", name: "Normal Balloon", price: 0, category: "bakery-supply", subcategory: "Decor Items", description: "Classic latex party balloons in assorted colours.", tone: "bg-[oklch(0.88_0.05_20)]", status: "unavailable" },
-  { id: "tq-chrome-balloon", name: "Chrome Balloon", price: 0, category: "bakery-supply", subcategory: "Decor Items", description: "High-shine chrome balloons that reflect light beautifully.", tone: "bg-[oklch(0.82_0.03_240)]", status: "unavailable" },
-  { id: "tq-heart-balloon", name: "Heart Shape Balloon", price: 0, category: "bakery-supply", subcategory: "Decor Items", description: "Heart-shaped balloons — ideal for anniversaries and love notes.", tone: "bg-[oklch(0.8_0.09_20)]", status: "unavailable" },
-  { id: "tq-combo", name: "Decor Combo", price: 0, category: "bakery-supply", subcategory: "Decor Items", description: "Curated combo of decor essentials for a full party setup.", tone: "bg-[oklch(0.88_0.04_60)]", status: "unavailable" },
-  { id: "tq-party-popper", name: "Party Popper", price: 0, category: "bakery-supply", subcategory: "Party Poppers", description: "Twist-to-pop confetti tubes for instant celebration.", tone: "bg-[oklch(0.88_0.04_140)]", status: "unavailable" },
-  { id: "tq-caps", name: "Party Caps", price: 0, category: "bakery-supply", subcategory: "Decor Items", description: "Colourful conical party caps with elastic string.", tone: "bg-[oklch(0.85_0.08_60)]", status: "unavailable" },
-  { id: "tq-foil", name: "Foil Decor", price: 0, category: "bakery-supply", subcategory: "Decor Items", description: "Metallic foil curtains and streamers for backdrops.", tone: "bg-[oklch(0.82_0.06_85)]", status: "not-in-stock" },
 
   // Office Supply
   { id: "leather-notebook", name: "Full-grain Leather Notebook", price: 86, category: "office-supply", description: "Refillable A5 cover in vegetable-tanned leather. Patinas with use.", tone: "bg-[oklch(0.5_0.06_50)]", badge: "New" },
-  { id: "brass-pen", name: "Brass Ballpoint Pen", price: 42, category: "office-supply", description: "Solid brass barrel, refillable. Weighted for a steady hand.", tone: "bg-[oklch(0.72_0.07_75)]" },
-  { id: "gold-paper-clips", name: "Gold Paper Clips (set of 30)", price: 14, category: "office-supply", description: "Brass-plated clips in a glass jar. A small upgrade for the desk.", tone: "bg-[oklch(0.82_0.08_85)]" },
-  { id: "linen-folder", name: "Linen-bound Document Folder", price: 38, category: "office-supply", description: "A4 folder wrapped in natural linen with an elastic closure.", tone: "bg-[oklch(0.86_0.015_85)]", badge: "Bestseller" },
-  { id: "desk-organizer", name: "Walnut Desk Organizer", price: 110, category: "office-supply", description: "Solid walnut tray with felt-lined compartments for daily tools.", tone: "bg-[oklch(0.42_0.04_50)]" },
-  { id: "kraft-letter-set", name: "Kraft Letter Set", price: 16, category: "office-supply", description: "Twenty sheets and ten envelopes in soft kraft paper.", tone: "bg-[oklch(0.78_0.05_70)]" },
 ];
