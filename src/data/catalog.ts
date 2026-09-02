@@ -9,8 +9,6 @@
 import type { Category, Product } from "./types";
 
 import cakePartyDecorImg from "@/assets/cake-party-decor.jpg";
-import officeImg from "@/assets/office.jpg";
-import soonImg from "@/assets/soon.jpg";
 
 const t1 = "/toppers/topper-1.jpeg";
 const t2 = "/toppers/topper-2.jpeg";
@@ -40,20 +38,6 @@ export const categories: Category[] = [
     tagline: "Décor for every celebration",
     description: "Cake toppers, candles, party poppers and celebration essentials — chosen to make every cake and gathering feel special.",
     image: cakePartyDecorImg,
-  },
-  {
-    slug: "office-supply",
-    name: "Office Supply",
-    tagline: "A considered workspace",
-    description: "Stationery, organisers and desk objects to bring quiet focus to your work.",
-    image: officeImg,
-  },
-  {
-    slug: "more-soon",
-    name: "More Soon",
-    tagline: "Stay updated",
-    description: "New categories landing soon. Check back shortly.",
-    image: soonImg,
   },
 ];
 
@@ -126,5 +110,4 @@ export const products: Product[] = [
   { id: "t-39", name: "Mehndi Foil Balloon", price: 35, category: "bakery-supply", subcategory: "Decor Items", description: "Mehndi foil balloon set for decoration.", tone: "bg-[oklch(0.9_0.03_140)]", status: "in-stock" },
 
   // Office Supply
-  { id: "leather-notebook", name: "Full-grain Leather Notebook", price: 86, category: "office-supply", description: "Refillable A5 cover in vegetable-tanned leather. Patinas with use.", tone: "bg-[oklch(0.5_0.06_50)]", badge: "New" },
 ];
