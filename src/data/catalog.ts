@@ -8,7 +8,7 @@
  */
 import type { Category, Product } from "./types";
 
-import bakeryImg from "@/assets/bakery.jpg";
+import cakePartyDecorImg from "@/assets/cake-party-decor.jpg";
 import officeImg from "@/assets/office.jpg";
 import soonImg from "@/assets/soon.jpg";
 
@@ -36,10 +36,10 @@ const t20 = "/toppers/topper-20.jpeg";
 export const categories: Category[] = [
   {
     slug: "bakery-supply",
-    name: "Bakery Supply",
-    tagline: "Tools of the trade",
-    description: "Equipment, packaging and essentials for bakers — built for daily use in the kitchen.",
-    image: bakeryImg,
+    name: "Cake & Party Décor",
+    tagline: "Décor for every celebration",
+    description: "Cake toppers, candles, party poppers and celebration essentials — chosen to make every cake and gathering feel special.",
+    image: cakePartyDecorImg,
   },
   {
     slug: "office-supply",

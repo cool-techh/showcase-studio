@@ -10,10 +10,10 @@
   `unavailable` ("Temporarily unavailable").
 - Products without a photo show the text **"No image available"**, never
   initials or a stock photo.
-- Categories (current): **Bakery Supply**, **Office Supply**, **More Soon**.
+- Categories (current): **Cake & Party Décor**, **Office Supply**, **More Soon**.
 - **More Soon** (`more-soon`) is a placeholder: its page shows only "Soon!" —
   no product grid.
-- Bakery Supply has a sub-nav above the grid: All, Cake Toppers & Knife,
+- Cake & Party Décor has a sub-nav above the grid: All, Cake Toppers & Knife,
   Party Poppers, Candles, Decor Items.
 - Every category gets its own page; the homepage never lists all products.
 - Design: minimalist, warm-white surface with a coral primary, Outfit +

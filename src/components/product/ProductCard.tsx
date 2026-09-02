@@ -4,7 +4,7 @@
  */
 import { Link } from "@tanstack/react-router";
 import type { Product } from "@/data/types";
-import { formatPrice, getStatusLabel } from "@/domain/presentation";
+import { formatCategoryName, formatPrice, getStatusLabel } from "@/domain/presentation";
 
 export function ProductCard({ product }: { product: Product }) {
   const statusLabel = getStatusLabel(product);
@@ -42,7 +42,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="mt-3 flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3 className="truncate text-sm font-medium text-foreground">{product.name}</h3>
-          <p className="mt-0.5 text-xs capitalize text-muted-foreground">{product.category}</p>
+          <p className="mt-0.5 text-xs text-muted-foreground">{formatCategoryName(product.category)}</p>
         </div>
         <span className="shrink-0 text-sm tabular-nums text-foreground">
           {formatPrice(product.price)}

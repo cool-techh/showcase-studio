@@ -44,8 +44,8 @@ function Home() {
           </div>
           <div className="lg:col-span-5">
             <p className="max-w-md text-base text-muted-foreground">
-              A small, growing selection of goods for bakers, makers and workspaces — chosen with
-              care, built to be used.
+              A small, growing selection of cake toppers, candles and party décor — chosen with care,
+              built to celebrate.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
