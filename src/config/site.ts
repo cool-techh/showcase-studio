@@ -5,9 +5,9 @@
 
 export const site = {
   name: "Atha",
-  tagline: "Bakery & Office Supplies",
+  tagline: "Cake & Party Décor",
   description:
-    "A minimalist showcase of bakery and office supplies — considered goods for makers and workspaces.",
+    "A minimalist showcase of cake toppers and party décor — curated pieces for every celebration.",
   year: "2026",
   email: "hello@trusiqq.com",
   studio: "14 Rue des Artisans, Paris",
@@ -21,5 +21,5 @@ export const PLACEHOLDER_CATEGORY_SLUG = "more-soon";
 
 /** Sub-navigation shown on category pages, keyed by category slug. */
 export const CATEGORY_SUBNAV: Record<string, string[]> = {
-  "bakery-supply": ["Cake Toppers & Knife", "Party Poppers", "Candles", "Decor Items"],
+  "bakery-supply": ["Cake Toppers & Knife"],
 };
