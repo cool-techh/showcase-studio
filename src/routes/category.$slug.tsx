@@ -95,12 +95,14 @@ function CategoryListing({
         ]}
       />
 
-      <header className="mt-6 border-b border-border pb-10">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          Category
+      <header className="mt-8 grid gap-6 border-b border-border pb-12 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+          The collection
         </p>
-        <h1 className="mt-3 text-4xl font-light tracking-tight sm:text-5xl">{category.name}</h1>
-        <p className="mt-4 max-w-xl text-base text-muted-foreground">{category.description}</p>
+        <h1 className="mt-3 text-4xl uppercase leading-none sm:text-6xl">{category.name}</h1>
+        </div>
+        <p className="max-w-xl text-base leading-relaxed text-muted-foreground lg:col-span-4">{category.description}</p>
       </header>
 
       {subnav && (

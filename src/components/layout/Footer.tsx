@@ -8,17 +8,17 @@ import { site } from "@/config/site";
 export function Footer() {
   const categories = listCategories();
   return (
-    <footer className="mt-24 border-t border-border bg-secondary/40">
+    <footer className="border-t border-border bg-foreground text-background">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <div className="text-lg font-semibold">{site.name}<span className="text-primary">.</span></div>
-          <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-            A quiet showcase of considered goods for everyday living.
+          <div className="font-script text-3xl text-primary">{site.name}.</div>
+          <p className="mt-3 max-w-xs text-sm text-background/60">
+            Joyful details for cakes, parties, and the people worth celebrating.
           </p>
         </div>
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Shop</h4>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-background">Shop</h4>
+          <ul className="mt-4 space-y-2 text-sm text-background/60">
             <li><Link to="/shop" className="hover:text-foreground">All products</Link></li>
             {categories.map((c) => (
               <li key={c.slug}>
@@ -30,29 +30,29 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Company</h4>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-background">Company</h4>
+          <ul className="mt-4 space-y-2 text-sm text-background/60">
             <li><Link to="/about" className="hover:text-foreground">About</Link></li>
             <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">Stay in touch</h4>
-          <p className="mt-4 text-sm text-muted-foreground">New arrivals and quiet dispatches, monthly.</p>
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-background">Stay in touch</h4>
+          <p className="mt-4 text-sm text-background/60">New arrivals and celebration ideas, monthly.</p>
           <form className="mt-4 flex gap-2" onSubmit={(e) => e.preventDefault()}>
             <input
               type="email"
               placeholder="you@example.com"
-              className="flex-1 rounded-full border border-border bg-background px-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/40"
+              className="min-w-0 flex-1 border-b border-background/40 bg-transparent px-1 py-2 text-sm text-background placeholder:text-background/40 focus:border-primary focus:outline-none"
             />
-            <button className="rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background hover:opacity-90">
+            <button className="bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:opacity-90">
               Join
             </button>
           </form>
         </div>
       </div>
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-5 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-5 py-6 text-xs text-background/50 sm:flex-row sm:items-center lg:px-8">
           <span>© {new Date().getFullYear()} {site.name}. All rights reserved.</span>
           <span>Showcase site — not yet open for orders.</span>
         </div>
