@@ -14,7 +14,8 @@ export const Route = createFileRoute("/product/$id")({
   loader: ({ params }) => {
     const product = getProduct(params.id);
     if (!product) throw notFound();
-    const category = getCategory(product.category)!;
+    const category = getCategory(product.category);
+    if (!category) throw notFound();
     const related = getRelatedProducts(product.category, product.id);
     return { product, category, related };
   },
@@ -52,8 +53,8 @@ function ProductPage() {
         ]}
       />
 
-      <div className="mt-6 grid gap-10 lg:grid-cols-2">
-        <div className={`relative aspect-square overflow-hidden rounded-2xl ${p.tone}`}>
+      <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className={`relative aspect-square overflow-hidden ${p.tone}`}>
           {p.image && (
             <img src={p.image} alt={p.name} className="absolute inset-0 h-full w-full object-cover" />
           )}
@@ -72,10 +73,10 @@ function ProductPage() {
         </div>
 
         <div className="flex flex-col">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
             {category.name}
           </p>
-          <h1 className="mt-3 text-3xl font-light tracking-tight sm:text-4xl">{p.name}</h1>
+          <h1 className="mt-3 text-3xl uppercase leading-tight sm:text-5xl">{p.name}</h1>
           <div className="mt-4 text-2xl font-light tabular-nums">{formatPrice(p.price)}</div>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">{p.description}</p>
 

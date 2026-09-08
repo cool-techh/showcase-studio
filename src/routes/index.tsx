@@ -27,36 +27,32 @@ function Home() {
 
   return (
     <div>
-      {/* Hero carousel — one slide per category */}
-      <section className="mx-auto max-w-7xl px-5 pt-6 lg:px-8">
+      <section>
         <HeroCarousel categories={categories} slide={slide} onSelect={setIndex} />
 
-        {/* Headline + CTA */}
-        <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              {site.name} — {site.year}
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 lg:grid-cols-12 lg:items-end lg:px-8">
+          <div className="lg:col-span-8">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">
+              Celebrations, considered · {site.year}
             </p>
-            <h1 className="mt-4 text-5xl font-light leading-[1.05] tracking-tight text-foreground sm:text-6xl">
-              Considered supplies for{" "}
-              <span className="italic text-primary">{active.name.toLowerCase()}</span>.
+            <h1 className="mt-5 max-w-4xl text-5xl uppercase leading-[0.95] text-foreground sm:text-7xl">
+              The little details make the <span className="font-script normal-case text-primary">moment.</span>
             </h1>
           </div>
-          <div className="lg:col-span-5">
-            <p className="max-w-md text-base text-muted-foreground">
-              A small, growing selection of cake toppers, candles and party décor — chosen with care,
-              built to celebrate.
+          <div className="lg:col-span-4">
+            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+              A joyful edit of cake toppers and party details, selected to turn everyday gatherings into lasting memories.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 to="/shop"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 bg-secondary px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-secondary-foreground transition-colors hover:bg-primary"
               >
-                Browse the collection <ArrowRight className="h-4 w-4" />
+                Browse all <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/about"
-                className="inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-muted"
+                className="inline-flex items-center border-b border-foreground py-2 text-xs font-semibold uppercase tracking-[0.12em] text-foreground"
               >
                 Our story
               </Link>
@@ -65,12 +61,12 @@ function Home() {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="mx-auto mt-24 max-w-7xl px-5 lg:px-8">
+      <section className="border-y border-border bg-muted/60 py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <h2 className="text-3xl font-light tracking-tight sm:text-4xl">Shop by category</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Three quiet worlds to explore.</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">01 · The collection</p>
+            <h2 className="mt-3 text-3xl uppercase sm:text-5xl">Made for the celebration</h2>
           </div>
           <Link to="/shop" className="hidden text-sm font-medium text-foreground hover:underline sm:inline">
             View all →
@@ -78,26 +74,25 @@ function Home() {
         </div>
 
         <CategoryTiles categories={categories} />
+        </div>
       </section>
 
-      {/* Featured */}
-      <section className="mx-auto mt-24 max-w-7xl px-5 lg:px-8">
+      <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <h2 className="text-3xl font-light tracking-tight sm:text-4xl">New &amp; notable</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Recently added to the collection.</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">02 · Product edit</p>
+            <h2 className="mt-3 text-3xl uppercase sm:text-5xl">New &amp; notable</h2>
           </div>
         </div>
         <ProductGrid products={featured} className="mt-10" />
       </section>
 
-      {/* Editorial */}
-      <section className="mx-auto mt-28 max-w-4xl px-5 text-center lg:px-8">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          Our approach
+      <section className="bg-secondary px-5 py-24 text-center text-secondary-foreground lg:px-8">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70">
+          The Atha point of view
         </p>
-        <p className="mt-5 text-2xl font-light leading-relaxed text-foreground sm:text-3xl">
-          “We choose fewer things, made well, by people we trust — then we get out of the way.”
+        <p className="mx-auto mt-5 max-w-4xl text-3xl uppercase leading-tight sm:text-5xl">
+          “Small details. <span className="font-script normal-case text-highlight">Big celebrations.</span> Made memorable.”
         </p>
       </section>
     </div>

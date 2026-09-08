@@ -32,12 +32,14 @@ function Shop() {
 
   return (
     <div className="mx-auto max-w-7xl px-5 pt-10 lg:px-8">
-      <header className="border-b border-border pb-8">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+      <header className="grid gap-6 border-b border-border pb-10 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
           The collection
         </p>
-        <h1 className="mt-3 text-4xl font-light tracking-tight sm:text-5xl">Shop all</h1>
-        <p className="mt-3 max-w-xl text-sm text-muted-foreground">
+        <h1 className="mt-3 text-5xl uppercase leading-none sm:text-7xl">Shop all</h1>
+        </div>
+        <p className="max-w-xl text-sm text-muted-foreground lg:col-span-4">
           {products.length} pieces across {categories.length} categories. Filter to narrow.
         </p>
       </header>

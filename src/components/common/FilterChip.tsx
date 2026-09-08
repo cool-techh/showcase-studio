@@ -24,10 +24,11 @@ export function FilterChip({
 
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`shrink-0 whitespace-nowrap rounded-full border ${
+      className={`shrink-0 whitespace-nowrap border ${
         variant === "primary" ? "px-4 py-2 text-xs" : "px-4 py-1.5 text-xs"
-      } font-medium transition-colors ${active ? activeClass : idleClass}`}
+      } font-semibold uppercase tracking-[0.1em] transition-colors ${active ? activeClass : idleClass}`}
     >
       {label}
     </button>

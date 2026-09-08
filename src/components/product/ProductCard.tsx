@@ -11,7 +11,7 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link to="/product/$id" params={{ id: product.id }} className="group block">
-      <div className={`relative aspect-[4/5] overflow-hidden rounded-xl ${product.tone}`}>
+      <div className={`relative aspect-[4/5] overflow-hidden ${product.tone}`}>
         {product.image && (
           <img
             src={product.image}
@@ -21,7 +21,7 @@ export function ProductCard({ product }: { product: Product }) {
           />
         )}
         {product.badge && (
-          <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-foreground">
+          <span className="absolute left-3 top-3 bg-secondary px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-secondary-foreground">
             {product.badge}
           </span>
         )}
@@ -33,15 +33,15 @@ export function ProductCard({ product }: { product: Product }) {
           </div>
         )}
         {statusLabel && (
-          <span className="absolute bottom-3 left-3 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+          <span className="absolute bottom-3 left-3 bg-background/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
             {statusLabel}
           </span>
         )}
         <div className="absolute inset-0 bg-foreground/0 transition-colors duration-300 group-hover:bg-foreground/[0.04]" />
       </div>
-      <div className="mt-3 flex items-start justify-between gap-3">
+      <div className="mt-4 flex items-start justify-between gap-3 border-t border-border pt-3">
         <div className="min-w-0">
-          <h3 className="truncate text-sm font-medium text-foreground">{product.name}</h3>
+          <h3 className="line-clamp-2 text-sm font-medium text-foreground">{product.name}</h3>
           <p className="mt-0.5 text-xs text-muted-foreground">{formatCategoryName(product.category)}</p>
         </div>
         <span className="shrink-0 text-sm tabular-nums text-foreground">
