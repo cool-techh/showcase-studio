@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, Search, ShoppingBag } from "lucide-react";
 import { listCategories } from "@/domain/catalog";
 import { site } from "@/config/site";
+import { Button } from "@/components/ui/button";
 
 /**
  * UI LAYER — site header + mobile nav.
@@ -12,45 +13,47 @@ export function Header() {
   const categories = listCategories();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link to="/" className="text-xl font-semibold tracking-tight">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
+      <div className="mx-auto grid h-20 max-w-7xl grid-cols-3 items-center px-5 lg:px-8">
+        <Link to="/" className="font-script justify-self-start text-3xl text-secondary">
           {site.name}<span className="text-primary">.</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-          <Link to="/shop" className="text-foreground/80 transition-colors hover:text-foreground">
-            Shop all
+        <nav className="hidden items-center justify-center gap-8 text-[11px] font-semibold uppercase tracking-[0.16em] md:flex">
+          <Link to="/shop" className="transition-colors hover:text-primary">
+            Shop
           </Link>
-          {categories.slice(0, 4).map((c) => (
+          {categories.slice(0, 1).map((c) => (
             <Link
               key={c.slug}
               to="/category/$slug"
               params={{ slug: c.slug }}
-              className="text-foreground/80 transition-colors hover:text-foreground"
+              className="transition-colors hover:text-primary"
             >
               {c.name}
             </Link>
           ))}
-          <Link to="/about" className="text-foreground/80 transition-colors hover:text-foreground">
+          <Link to="/about" className="transition-colors hover:text-primary">
             About
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1">
-          <button aria-label="Search" className="rounded-full p-2 hover:bg-muted">
+        <div className="flex items-center justify-end gap-1">
+          <Button variant="ghost" size="icon" aria-label="Search" className="rounded-full">
             <Search className="h-[18px] w-[18px]" />
-          </button>
-          <button aria-label="Bag" className="rounded-full p-2 hover:bg-muted">
+          </Button>
+          <Button variant="ghost" size="icon" aria-label="Bag" className="rounded-full">
             <ShoppingBag className="h-[18px] w-[18px]" />
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
             aria-label="Menu"
-            className="rounded-full p-2 hover:bg-muted md:hidden"
+            className="rounded-full md:hidden"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X className="h-[18px] w-[18px]" /> : <Menu className="h-[18px] w-[18px]" />}
-          </button>
+          </Button>
         </div>
       </div>
 
