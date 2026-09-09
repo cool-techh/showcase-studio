@@ -5,6 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { buildMeta, pageTitle } from "@/config/seo";
 import { site } from "@/config/site";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,11 +18,11 @@ function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-16 px-5 py-20 lg:grid-cols-2 lg:px-8">
+    <div className="mx-auto grid max-w-6xl gap-16 px-5 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
-        <h1 className="mt-4 text-4xl font-light tracking-tight sm:text-5xl">
-          Tell us what you're looking for.
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">Contact</p>
+        <h1 className="mt-4 text-5xl uppercase leading-none sm:text-7xl">
+          Let's make it <span className="font-script normal-case text-primary">special.</span>
         </h1>
         <p className="mt-6 max-w-md text-base text-muted-foreground">
           We read every message. Whether it's a question about a piece, a wholesale enquiry, or
@@ -48,7 +49,7 @@ function Contact() {
           e.preventDefault();
           setSent(true);
         }}
-        className="space-y-5 rounded-2xl border border-border bg-card p-6 sm:p-8"
+        className="space-y-5 border border-border bg-card p-6 sm:p-10"
       >
         {sent ? (
           <div className="py-10 text-center">
@@ -58,35 +59,23 @@ function Contact() {
         ) : (
           <>
             <Field label="Name">
-              <input required className="input" placeholder="Your name" />
+              <input required className="w-full border-b border-border bg-transparent px-0 py-3 text-sm outline-none focus:border-secondary" placeholder="Your name" />
             </Field>
             <Field label="Email">
-              <input required type="email" className="input" placeholder="you@example.com" />
+              <input required type="email" className="w-full border-b border-border bg-transparent px-0 py-3 text-sm outline-none focus:border-secondary" placeholder="you@example.com" />
             </Field>
             <Field label="Subject">
-              <input className="input" placeholder="What's this about?" />
+              <input className="w-full border-b border-border bg-transparent px-0 py-3 text-sm outline-none focus:border-secondary" placeholder="What's this about?" />
             </Field>
             <Field label="Message">
-              <textarea required rows={5} className="input resize-none" placeholder="Tell us more…" />
+              <textarea required rows={5} className="w-full resize-none border-b border-border bg-transparent px-0 py-3 text-sm outline-none focus:border-secondary" placeholder="Tell us more…" />
             </Field>
-            <button className="w-full rounded-full bg-foreground py-3 text-sm font-medium text-background hover:opacity-90">
+            <Button className="h-12 w-full rounded-none bg-secondary text-xs uppercase tracking-wider text-secondary-foreground hover:bg-primary">
               Send message
-            </button>
+            </Button>
           </>
         )}
       </form>
-      <style>{`
-        .input {
-          width: 100%;
-          border-radius: 0.625rem;
-          border: 1px solid var(--color-border);
-          background: var(--color-background);
-          padding: 0.75rem 1rem;
-          font-size: 0.875rem;
-          outline: none;
-        }
-        .input:focus { border-color: var(--color-foreground); }
-      `}</style>
     </div>
   );
 }
