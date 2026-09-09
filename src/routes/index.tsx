@@ -23,8 +23,6 @@ function Home() {
   const categories = listCategories();
   const featured = getFeaturedProducts();
   const { index: slide, setIndex } = useCarousel(categories.length);
-  const active = categories[slide];
-
   return (
     <div>
       <section>
