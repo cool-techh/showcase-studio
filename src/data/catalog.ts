@@ -39,6 +39,7 @@ export const categories: Category[] = [
     tagline: "Décor for every celebration",
     description: "Cake toppers, candles, party poppers and celebration essentials — chosen to make every cake and gathering feel special.",
     image: cakePartyDecorImg,
+    tileImage: cakePartyDecorTileImg,
   },
 ];
 
