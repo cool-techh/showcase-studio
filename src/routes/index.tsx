@@ -4,13 +4,12 @@
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { getFeaturedProducts, listCategories } from "@/domain/catalog";
+import { listCategories } from "@/domain/catalog";
 import { buildMeta } from "@/config/seo";
 import { site } from "@/config/site";
 import { useCarousel } from "@/hooks/use-carousel";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { CategoryTiles } from "@/components/home/CategoryTiles";
-import { ProductGrid } from "@/components/product/ProductGrid";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,7 +20,6 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const categories = listCategories();
-  const featured = getFeaturedProducts();
   const { index: slide, setIndex } = useCarousel(categories.length);
   return (
     <div>
@@ -73,16 +71,6 @@ function Home() {
 
         <CategoryTiles categories={categories} />
         </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">02 · Product edit</p>
-            <h2 className="mt-3 text-3xl uppercase sm:text-5xl">New &amp; notable</h2>
-          </div>
-        </div>
-        <ProductGrid products={featured} className="mt-10" />
       </section>
 
       <section className="bg-secondary px-5 py-24 text-center text-secondary-foreground lg:px-8">
