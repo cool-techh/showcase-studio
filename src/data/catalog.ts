@@ -9,6 +9,7 @@
 import type { Category, Product } from "./types";
 
 import cakePartyDecorImg from "@/assets/cake-party-decor.jpg";
+import cakePartyDecorTileImg from "@/assets/cake-party-decor-tile.jpg";
 
 const t1 = "/toppers/topper-1.jpeg";
 const t2 = "/toppers/topper-2.jpeg";
@@ -38,6 +39,7 @@ export const categories: Category[] = [
     tagline: "Décor for every celebration",
     description: "Cake toppers, candles, party poppers and celebration essentials — chosen to make every cake and gathering feel special.",
     image: cakePartyDecorImg,
+    tileImage: cakePartyDecorTileImg,
   },
 ];
 
