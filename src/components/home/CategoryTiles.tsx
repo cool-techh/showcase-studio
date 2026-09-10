@@ -15,7 +15,7 @@ export function CategoryTiles({ categories }: { categories: Category[] }) {
           className="group relative aspect-[4/5] overflow-hidden bg-muted lg:first:col-span-2 lg:first:aspect-[16/9]"
         >
           <img
-            src={c.image}
+            src={c.tileImage ?? c.image}
             alt={c.name}
             loading="lazy"
             width={800}

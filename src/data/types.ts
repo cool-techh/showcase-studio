@@ -12,8 +12,10 @@ export type Category = {
   name: string;
   tagline: string;
   description: string;
-  /** Imported asset or public path. */
+  /** Imported asset or public path. Used by the hero carousel. */
   image: string;
+  /** Optional separate image for the category tile on the homepage. */
+  tileImage?: string;
 };
 
 export type Product = {
