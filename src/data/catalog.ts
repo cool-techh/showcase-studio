@@ -31,6 +31,20 @@ const t17 = "/toppers/topper-17.jpeg";
 const t18 = "/toppers/topper-18.jpeg";
 const t19 = "/toppers/topper-19.jpeg";
 const t20 = "/toppers/topper-20.jpeg";
+const t21 = "/toppers/topper-21.jpg";
+const t22 = "/toppers/topper-22.jpg";
+const t23 = "/toppers/topper-23.jpg";
+const t24 = "/toppers/topper-24.jpg";
+const t25 = "/toppers/topper-25.jpg";
+const t26 = "/toppers/topper-26.jpg";
+const t27 = "/toppers/topper-27.jpg";
+const t28 = "/toppers/topper-28.jpg";
+const t29 = "/toppers/topper-29.jpg";
+const t30 = "/toppers/topper-30.jpg";
+const t31 = "/toppers/topper-31.jpg";
+const t32 = "/toppers/topper-32.jpg";
+const t33 = "/toppers/topper-33.jpg";
+const birthdayPack = "/toppers/birthday-pack.jpg";
 
 export const categories: Category[] = [
   {
