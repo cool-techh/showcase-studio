@@ -6,7 +6,8 @@ import { getCategory } from "@/domain/catalog";
 import type { Product } from "@/data/types";
 
 /** Prices are INR. Unpriced items (0) show an em dash. */
-export const formatPrice = (price: number): string => (price > 0 ? `₹${price}` : "—");
+export const formatPrice = (price: number): string =>
+  price > 0 ? `₹${Number.isInteger(price) ? price : price.toFixed(2)}` : "—";
 
 /** Human label for a product's availability, or null when it is in stock. */
 export const getStatusLabel = (product: Product): string | null => {

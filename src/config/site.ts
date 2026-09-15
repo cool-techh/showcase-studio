@@ -21,5 +21,5 @@ export const PLACEHOLDER_CATEGORY_SLUG = "more-soon";
 
 /** Sub-navigation shown on category pages, keyed by category slug. */
 export const CATEGORY_SUBNAV: Record<string, string[]> = {
-  "bakery-supply": ["Cake Toppers & Knife"],
+  "bakery-supply": ["Cake Toppers & Knife", "Birthday Kits"],
 };

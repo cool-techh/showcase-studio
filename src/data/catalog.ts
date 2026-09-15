@@ -31,6 +31,20 @@ const t17 = "/toppers/topper-17.jpeg";
 const t18 = "/toppers/topper-18.jpeg";
 const t19 = "/toppers/topper-19.jpeg";
 const t20 = "/toppers/topper-20.jpeg";
+const t21 = "/toppers/topper-21.jpg";
+const t22 = "/toppers/topper-22.jpg";
+const t23 = "/toppers/topper-23.jpg";
+const t24 = "/toppers/topper-24.jpg";
+const t25 = "/toppers/topper-25.jpg";
+const t26 = "/toppers/topper-26.jpg";
+const t27 = "/toppers/topper-27.jpg";
+const t28 = "/toppers/topper-28.jpg";
+const t29 = "/toppers/topper-29.jpg";
+const t30 = "/toppers/topper-30.jpg";
+const t31 = "/toppers/topper-31.jpg";
+const t32 = "/toppers/topper-32.jpg";
+const t33 = "/toppers/topper-33.jpg";
+const birthdayPack = "/toppers/birthday-pack.jpg";
 
 export const categories: Category[] = [
   {
@@ -65,4 +79,22 @@ export const products: Product[] = [
   { id: "tp-best-mom", name: "Best Mom Topper — Gold Glitter (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Best Mom script topper in gold glitter MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t18 },
   { id: "tp-one-month-gold", name: "One Month Topper — Gold Mirror (Acrylic)", price: 18, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "One Month milestone topper with balloon detailing in mirror gold acrylic. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t19 },
   { id: "tp-hbd-circle-gold", name: "Happy Birthday Topper — Gold Circle Frame (Acrylic)", price: 18, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Scalloped circle frame Happy Birthday topper in mirror gold acrylic. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t20 },
+
+  // ===== Cake Toppers & Knife (catalogue additions) =====
+  { id: "tp-hbd-heart-red", name: "Happy Birthday Heart Topper — Red (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "MDF Happy Birthday topper inside a heart frame, in bold red. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.06_20)]", status: "in-stock", image: t21 },
+  { id: "tp-hbd-heart-gold", name: "Happy Birthday Heart Topper — Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "MDF Happy Birthday topper inside a heart frame, in gold finish. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t22 },
+  { id: "tp-hbd-wreath-gold", name: "Happy Birthday Topper — Wreath Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Gold MDF Happy Birthday topper framed in a leafy wreath circle. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t23 },
+  { id: "tp-hbd-car-gold", name: "Happy Birthday Topper — Car Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Gold MDF Happy Birthday topper in a circle with car motifs — great for kids' cakes. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t24 },
+  { id: "tp-hbd-floral-gold", name: "Happy Birthday Topper — Floral Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Gold MDF Happy Birthday topper in a floral wreath circle. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t25 },
+  { id: "tp-hbd-round-gold", name: "Happy Birthday Topper — Round Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Minimal round gold MDF Happy Birthday topper with script lettering. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t26 },
+  { id: "tp-hbd-crown-gold", name: "Happy Birthday Topper — Crown Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Gold MDF Happy Birthday topper in a circle topped with a crown. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t27 },
+  { id: "tp-love-you-mom-gold", name: "Love You Mom Topper — Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Love You Mom script topper with heart accents in gold MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t28 },
+  { id: "tp-congrats-gold", name: "Congrats Topper — Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Congrats script topper in gold MDF — perfect for celebrations and milestones. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t29 },
+  { id: "tp-hbd-script-gold", name: "Happy Birthday Topper — Script Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Classic Happy Birthday script topper in gold MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t30 },
+  { id: "tp-anniversary-script-gold", name: "Happy Anniversary Topper — Script Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Happy Anniversary script topper in gold MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t31 },
+  { id: "tp-hbd-gift-swirl", name: "Happy Birthday Gift Topper — Swirl Gold (Acrylic)", price: 18, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Mirror gold acrylic Happy Birthday topper with a swirl-base gift box design. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t32 },
+  { id: "tp-hbd-gift-stripe", name: "Happy Birthday Gift Topper — Stripe Gold (Acrylic)", price: 18, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Mirror gold acrylic Happy Birthday topper with a striped gift box design. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t33 },
+
+  // ===== Birthday Kits =====
+  { id: "bk-birthday-essentials", name: "Birthday Essentials Pack", price: 4.5, category: "bakery-supply", subcategory: "Birthday Kits", description: "All-in-one celebration pack: 1 wooden knife, 1 Happy Birthday topper, 4 assorted candles and a matchbox. Price per packet.", tone: "bg-[oklch(0.9_0.05_340)]", status: "in-stock", image: birthdayPack },
 ];
