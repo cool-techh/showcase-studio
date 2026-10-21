@@ -6,4 +6,4 @@
 
 - [x] Restyle the supplied cake and pastry board photos without changing their products
 - [x] Add the pictured boards and supplied prices to Cake Boards & Pastry Boards
-- [ ] Verify board filtering, prices and product photos
+- [x] Verify board filtering, prices and product photos
