@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep board product data in `src/data/board-products.ts` and resolve its image keys in the main catalogue, so price and category rules can be tested independently of bundled media.
