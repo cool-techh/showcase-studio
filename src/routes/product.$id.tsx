@@ -29,7 +29,7 @@ export const Route = createFileRoute("/product/$id")({
     <PageMessage title="Product not found" action={{ to: "/shop", label: "Browse all" }} />
   ),
   errorComponent: ({ error }) => (
-    <PageMessage title="Something went wrong" body={error.message} />
+    <PageMessage title="Something went wrong" body={error instanceof Error ? error.message : String(error)} />
   ),
   component: ProductPage,
 });

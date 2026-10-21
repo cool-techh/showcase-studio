@@ -7,6 +7,18 @@
  * `src/domain/catalog.ts`.
  */
 import type { Category, Product } from "./types";
+import { boardProducts } from "./board-products";
+import cakeBoardImage from "@/assets/mdf-cake-boards.jpg";
+import pastryBoard0 from "@/assets/pastry-copper-square.jpg";
+import pastryBoard1 from "@/assets/pastry-silver-square.jpg";
+import pastryBoard2 from "@/assets/pastry-blue-square.jpg";
+import pastryBoard3 from "@/assets/pastry-black-triangle.jpg";
+import pastryBoard4 from "@/assets/pastry-golden-triangle.jpg";
+import pastryBoard5 from "@/assets/pastry-magenta-triangle.jpg";
+import pastryBoard6 from "@/assets/pastry-matte-gold-triangle.jpg";
+import pastryBoard7 from "@/assets/pastry-copper-triangle.jpg";
+import pastryBoard8 from "@/assets/pastry-silver-triangle.jpg";
+
 
 import cakePartyDecorImg from "@/assets/cake-party-decor.jpg";
 import cakePartyDecorTileImg from "@/assets/cake-party-decor-tile.jpg";
@@ -57,6 +69,19 @@ export const categories: Category[] = [
   },
 ];
 
+const boardImages: Record<string, string> = {
+  cake: cakeBoardImage,
+  "copper-square": pastryBoard0,
+  "silver-square": pastryBoard1,
+  "blue-square": pastryBoard2,
+  "black-triangle": pastryBoard3,
+  "golden-triangle": pastryBoard4,
+  "magenta-triangle": pastryBoard5,
+  "matte-gold-triangle": pastryBoard6,
+  "copper-triangle": pastryBoard7,
+  "silver-triangle": pastryBoard8,
+};
+
 export const products: Product[] = [
   // ===== Cake Toppers & Knife (photos) =====
   { id: "tp-happy-birthday-red", name: "Happy Birthday Topper — Red Glitter (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "MDF Happy Birthday cake topper in red glitter script. Size 4.45\"–5\". Premium MDF, lightweight and durable.", tone: "bg-[oklch(0.85_0.06_20)]", status: "in-stock", image: t1 },
@@ -94,6 +119,9 @@ export const products: Product[] = [
   { id: "tp-anniversary-script-gold", name: "Happy Anniversary Topper — Script Gold (MDF)", price: 15, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Happy Anniversary script topper in gold MDF. Size 4.45\"–5\".", tone: "bg-[oklch(0.85_0.08_85)]", status: "in-stock", image: t31 },
   { id: "tp-hbd-gift-swirl", name: "Happy Birthday Gift Topper — Swirl Gold (Acrylic)", price: 18, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Mirror gold acrylic Happy Birthday topper with a swirl-base gift box design. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t32 },
   { id: "tp-hbd-gift-stripe", name: "Happy Birthday Gift Topper — Stripe Gold (Acrylic)", price: 18, category: "bakery-supply", subcategory: "Cake Toppers & Knife", description: "Mirror gold acrylic Happy Birthday topper with a striped gift box design. Size 4.45\"–5\".", tone: "bg-[oklch(0.86_0.07_85)]", status: "in-stock", image: t33 },
+
+  // ===== Cake Boards & Pastry Boards =====
+  ...boardProducts.map(({ imageKey, ...product }) => ({ ...product, image: boardImages[imageKey] })),
 
   // ===== Birthday Kits =====
   { id: "bk-birthday-essentials", name: "Birthday Essentials Pack", price: 4.5, category: "bakery-supply", subcategory: "Birthday Kits", description: "All-in-one celebration pack: 1 wooden knife, 1 Happy Birthday topper, 4 assorted candles and a matchbox. Price per packet.", tone: "bg-[oklch(0.9_0.05_340)]", status: "in-stock", image: birthdayPack },

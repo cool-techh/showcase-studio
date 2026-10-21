@@ -38,7 +38,7 @@ export const Route = createFileRoute("/category/$slug")({
     />
   ),
   errorComponent: ({ error }) => (
-    <PageMessage title="Something went wrong" body={error.message} />
+    <PageMessage title="Something went wrong" body={error instanceof Error ? error.message : String(error)} />
   ),
   component: CategoryPage,
 });
