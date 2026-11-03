@@ -20,6 +20,9 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center justify-center gap-8 text-[11px] font-semibold uppercase tracking-[0.16em] md:flex">
+          <Link to="/" className="transition-colors hover:text-primary">
+            Home
+          </Link>
           <Link to="/shop" className="transition-colors hover:text-primary">
             Shop
           </Link>
@@ -60,6 +63,7 @@ export function Header() {
       {open && (
         <div className="border-t border-border bg-background md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-5 py-4 text-sm">
+            <Link to="/" className="py-2.5" onClick={() => setOpen(false)}>Home</Link>
             <Link to="/shop" className="py-2.5" onClick={() => setOpen(false)}>Shop all</Link>
             {categories.map((c) => (
               <Link
