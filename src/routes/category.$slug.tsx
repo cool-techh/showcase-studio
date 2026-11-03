@@ -5,7 +5,6 @@
 import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
-  ALL_FILTER,
   filterBySubcategory,
   getCategory,
   getOtherCategories,
@@ -107,7 +106,7 @@ function CategoryListing({
 
       {subnav && (
         <div className="mt-8 flex gap-2 overflow-x-auto pb-2">
-          {[ALL_FILTER, ...subnav].map((sub) => (
+          {subnav.map((sub) => (
             <FilterChip
               key={sub}
               label={sub}

@@ -9,6 +9,7 @@ import { buildMeta, pageTitle } from "@/config/seo";
 import { Breadcrumbs, CrumbLink } from "@/components/common/Breadcrumbs";
 import { PageMessage } from "@/components/common/PageMessage";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { AddToCart } from "@/components/product/AddToCart";
 
 export const Route = createFileRoute("/product/$id")({
   loader: ({ params }) => {
@@ -81,12 +82,7 @@ function ProductPage() {
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">{p.description}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <button
-              disabled
-              className="inline-flex cursor-not-allowed items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background opacity-60"
-            >
-              Coming soon
-            </button>
+            <AddToCart quantityOptions={p.subcategory === "Cake Toppers & Knife"} />
             <Link
               to="/contact"
               className="inline-flex items-center justify-center rounded-full border border-border px-6 py-3 text-sm font-medium hover:bg-muted"
