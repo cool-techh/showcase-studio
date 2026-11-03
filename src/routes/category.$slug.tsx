@@ -81,7 +81,9 @@ function CategoryListing({
   products: ReturnType<typeof getProductsByCategory>;
 }) {
   const subnav = CATEGORY_SUBNAV[category.slug];
-  const [activeSub, setActiveSub] = useState(ALL_FILTER);
+  // No "All" view: the page always opens on the first subcategory so every
+  // product is seen inside its own group.
+  const [activeSub, setActiveSub] = useState<string>(subnav?.[0] ?? "");
   const filtered = subnav ? filterBySubcategory(products, activeSub) : products;
 
   return (
